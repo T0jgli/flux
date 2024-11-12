@@ -463,7 +463,7 @@ ingress:
       }
 
   # -- Secret that contains a TLS private key and certificate. Use secrets if you want to use your own certificates to secure ingresses.
-  secrets:
+  # secrets:
   ## If you're providing your own certificates, please use this to add the certificates as secrets
   ## key and certificate should start with -----BEGIN CERTIFICATE----- or
   ## -----BEGIN RSA PRIVATE KEY-----
