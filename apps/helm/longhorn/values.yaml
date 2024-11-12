@@ -433,7 +433,7 @@ ingress:
   host: lh.kvlk.local
 
   # -- Setting that allows you to enable TLS on ingress records.
-  tls: false
+  tls: true
 
   # -- Setting that allows you to enable secure connections to the Longhorn UI service via port 443.
   secureBackends: false
@@ -464,8 +464,6 @@ ingress:
 
   # -- Secret that contains a TLS private key and certificate. Use secrets if you want to use your own certificates to secure ingresses.
   secrets:
-    - name: longhorn-tls
-
   ## If you're providing your own certificates, please use this to add the certificates as secrets
   ## key and certificate should start with -----BEGIN CERTIFICATE----- or
   ## -----BEGIN RSA PRIVATE KEY-----
