@@ -1,0 +1,58 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: allow-from-cnpg
+spec:
+  podSelector:
+    matchLabels:
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: cnpg-system
+          podSelector: {}
+---
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: deny-from-other-namespaces
+spec:
+  podSelector:
+    matchLabels:
+  ingress:
+    - from:
+        - podSelector: {}
+---
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: allow-from-nextcloud
+spec:
+  podSelector:
+    matchLabels:
+      cnpg.io/podRole: pooler
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: nextcloud
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: nextcloud
+---
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: allow-from-pgadmin
+spec:
+  podSelector:
+    matchLabels:
+      cnpg.io/podRole: pooler
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: pgadmin
+        - podSelector:
+            matchLabels:
+              app: pgadmin

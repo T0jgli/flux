@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-portainer
+  namespace: portainer
+  annotations:
+    # nginx.ingress.kubernetes.io/backend-protocol: "https"
+    # nginx.org/ssl-services: "humsclog-kibana-kb-http"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - portainer.kvlk.hu
+      secretName: portainer-tls
+  rules:
+    - host: "portainer.kvlk.hu"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: "portainer"
+                port:
+                  name: http

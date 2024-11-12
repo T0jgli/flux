@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-timetagger
+  annotations:
+    cert-manager.io/cluster-issuer: "custom-ca-issuer"
+    nginx.ingress.kubernetes.io/server-snippet: |
+      if ($scheme = http) {
+        return 301 https://$host:8443$request_uri;
+      }
+spec:
+  ingressClassName: nginx-internal
+  tls:
+    - hosts:
+        - timetagger.kvlk.local
+      secretName: timetagger-tls
+  rules:
+    - host: "timetagger.kvlk.local"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: "timetagger"
+                port:
+                  number: 80

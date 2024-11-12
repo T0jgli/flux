@@ -1,0 +1,71 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pgadmin
+  namespace: pgadmin
+spec:
+  selector:
+    matchLabels:
+      app: pgadmin
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pgadmin
+    spec:
+      containers:
+        - name: pgadmin4
+          #          securityContext:
+          #            allowPrivilegeEscalation: false
+          #            runAsUser: 0
+          image: dpage/pgadmin4:8.12.0
+          env:
+            - name: PGADMIN_DEFAULT_EMAIL
+              value: "kovalikadam00@gmail.com"
+            - name: PGADMIN_DEFAULT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: pgadmin-secret
+                  key: pgadmin-default-password
+            - name: PGADMIN_PORT
+              value: "80"
+            - name: PGADMIN_CONFIG_WTF_CSRF_ENABLED
+              value: "False"
+          ports:
+            - containerPort: 80
+              name: pgadminport
+          volumeMounts:
+            - mountPath: /var/lib/pgadmin
+              name: pgadmin-storage
+      volumes:
+        - name: pgadmin-storage
+          persistentVolumeClaim:
+            claimName: pgadmin-pv-claim
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pgadmin-pv-claim
+  namespace: pgadmin
+spec:
+  storageClassName: longhorn
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pgadmin
+  namespace: pgadmin
+  labels:
+    app: pgadmin
+spec:
+  selector:
+    app: pgadmin
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80

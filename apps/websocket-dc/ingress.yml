@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-websocket-dc
+  annotations:
+    # nginx.ingress.kubernetes.io/backend-protocol: "https"
+    # nginx.org/ssl-services: "humsclog-kibana-kb-http"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - websocket-dc.kvlk.hu
+      secretName: websocket-dc-tls
+  rules:
+    - host: "websocket-dc.kvlk.hu"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: "websocket-dc"
+                port:
+                  name: http

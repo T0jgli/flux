@@ -1,0 +1,32 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: default
+spec:
+  instances: 2
+  env:
+    - name: TZ
+      value: Europe/Budapest
+  replicationSlots:
+    highAvailability:
+      enabled: true
+
+  storage:
+    size: 10Gi
+    storageClass: local-path
+  managed:
+    roles:
+      - name: nextcloud
+        ensure: present
+        passwordSecret:
+          name: nextcloud-user
+        comment: NextCloud App
+        login: true
+        superuser: true
+  postgresql:
+    shared_preload_libraries: ["passwordcheck"]
+    parameters:
+      pgaudit.log_catalog: "off"
+      pgaudit.log_parameter: "off"
+      pgaudit.log_relation: "off"
+      pgaudit.log_statement: "off"

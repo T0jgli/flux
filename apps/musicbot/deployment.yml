@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: musicbot
+  namespace: musicbot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: musicbot
+  template:
+    metadata:
+      labels:
+        app: musicbot
+    spec:
+      imagePullSecrets:
+        - name: registry
+      imagePullPolicy: Always
+      containers:
+        - name: musicbot
+          image: registry.kvlk.hu/musicbot:latest
+          envFrom:
+            - secretRef:
+                name: musicbot-env

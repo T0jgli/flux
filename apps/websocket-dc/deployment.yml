@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: websocket-dc
+  namespace: websocket-dc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: websocket-dc
+  template:
+    metadata:
+      labels:
+        app: websocket-dc
+    spec:
+      imagePullSecrets:
+        - name: registry
+      imagePullPolicy: Always
+      containers:
+        - name: websocket-dc
+          ports:
+            - containerPort: 3000
+              name: web
+          image: registry.kvlk.hu/websocket-dc:latest
+          envFrom:
+            - secretRef:
+                name: websocket-dc-env
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: websocket-dc
+  labels:
+    app: websocket-dc
+spec:
+  ports:
+    - port: 3000
+      name: http
+  selector:
+    app: websocket-dc

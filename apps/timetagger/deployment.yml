@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: timetagger
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: timetagger
+  template:
+    metadata:
+      labels:
+        app: timetagger
+    spec:
+      containers:
+        - name: timetagger
+          ports:
+            - containerPort: 80
+              name: web
+          image: ghcr.io/almarklein/timetagger:v24.07.1-nonroot
+          envFrom:
+            - secretRef:
+                name: timetagger-env
+            - configMapRef:
+                name: timetagger-env
+          volumeMounts:
+            - mountPath: /opt/_timetagger
+              name: timetagger-storage
+      volumes:
+        - name: timetagger-storage
+          persistentVolumeClaim:
+            claimName: timetagger-pv-claim
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: timetagger-pv-claim
+spec:
+  storageClassName: longhorn
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: timetagger-env
+data:
+  TIMETAGGER_DATADIR: /opt/_timetagger
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: timetagger
+  namespace: timetagger
+  labels:
+    app: timetagger
+spec:
+  selector:
+    app: timetagger
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80
