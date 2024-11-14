@@ -13,12 +13,12 @@ spec:
       labels:
         app: musicbot
     spec:
-      imagePullSecrets:
-        - name: registry
+      # imagePullSecrets:
+      #   - name: registry
       imagePullPolicy: Always
       containers:
         - name: musicbot
-          image: registry.kvlk.hu/musicbot:latest
+          image: hoangvudev12/megumin:latest
           envFrom:
             - secretRef:
                 name: musicbot-env
