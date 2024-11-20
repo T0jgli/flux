@@ -4,7 +4,7 @@ kind: Kustomization
 generatorOptions:
   disableNameSuffixHash: true
 
-namespace: github
+namespace: actions-runner-system
 
 resources:
   - https://github.com/actions/actions-runner-controller/releases/download/v0.25.2/actions-runner-controller.yaml
