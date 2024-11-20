@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h0m0s
-  url: oci://ghcr.io/actions/actions-runner-controller-charts
+  url: oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set-controller
   ref:
     tag: "v0.9.0"
 ---
@@ -18,9 +18,7 @@ spec:
   releaseName: github-actions-runner
   interval: 5m
   targetNamespace: arc-systems
-  chart:
-    spec:
-      chart: gha-runner-scale-set-controller
-      sourceRef:
-        kind: OCIRepository
-        name: github-actions-runner
+  chartRef:
+    kind: OCIRepository
+    name: github-actions-runner
+    namespace: flux-system
