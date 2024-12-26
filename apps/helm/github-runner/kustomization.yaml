@@ -7,6 +7,7 @@ resources:
 
 configMapGenerator:
   - name: arc-values
+    namespace: arc-runners
     files:
       - values.yaml=values.yaml
 configurations:
