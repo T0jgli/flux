@@ -1,0 +1,28 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: arc
+  namespace: flux-system
+spec:
+  interval: 5m
+  targetNamespace: arc-systems
+  releaseName: arc
+  install:
+    crds: Create
+    createNamespace: true
+  upgrade:
+    crds: CreateReplace
+    remediation:
+      remediateLastFailure: true
+  chart:
+    spec:
+      chart: gha-runner-scale-set-controller
+      reconcileStrategy: ChartVersion
+      version: "1.7.1"
+      sourceRef:
+        kind: HelmRepository
+        name: arc
+        namespace: flux-system
+  valuesFrom:
+    - kind: ConfigMap
+      name: arc-values
