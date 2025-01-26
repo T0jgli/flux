@@ -1,58 +1,34 @@
-kind: NetworkPolicy
-apiVersion: networking.k8s.io/v1
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
 metadata:
-  name: allow-from-cnpg
+  name: allow-self
 spec:
-  podSelector:
-    matchLabels:
+  endpointSelector: {}
   ingress:
-    - from:
-        - namespaceSelector:
-            matchLabels:
-              kubernetes.io/metadata.name: cnpg-system
-          podSelector: {}
+    - fromEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: postgresql
 ---
-kind: NetworkPolicy
-apiVersion: networking.k8s.io/v1
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
 metadata:
-  name: deny-from-other-namespaces
+  name: allow-clients
 spec:
-  podSelector:
-    matchLabels:
-  ingress:
-    - from:
-        - podSelector: {}
----
-kind: NetworkPolicy
-apiVersion: networking.k8s.io/v1
-metadata:
-  name: allow-from-nextcloud
-spec:
-  podSelector:
+  endpointSelector:
     matchLabels:
       cnpg.io/podRole: pooler
   ingress:
-    - from:
-        - namespaceSelector:
-            matchLabels:
-              kubernetes.io/metadata.name: nextcloud
-        - podSelector:
-            matchLabels:
-              app.kubernetes.io/name: nextcloud
----
-kind: NetworkPolicy
-apiVersion: networking.k8s.io/v1
-metadata:
-  name: allow-from-pgadmin
-spec:
-  podSelector:
-    matchLabels:
-      cnpg.io/podRole: pooler
-  ingress:
-    - from:
-        - namespaceSelector:
-            matchLabels:
-              kubernetes.io/metadata.name: pgadmin
-        - podSelector:
-            matchLabels:
-              app: pgadmin
+    - fromEndpoints:
+        - matchLabels:
+            app.kubernetes.io/name: nextcloud
+            io.kubernetes.pod.namespace: nextcloud
+      toPorts:
+        - ports:
+            - port: "5432"
+    - fromEndpoints:
+        - matchLabels:
+            app: pgadmin
+            io.kubernetes.pod.namespace: pgadmin
+      toPorts:
+        - ports:
+            - port: "5432"
