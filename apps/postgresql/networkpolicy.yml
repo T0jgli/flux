@@ -8,6 +8,8 @@ spec:
     - fromEndpoints:
         - matchLabels:
             io.kubernetes.pod.namespace: cnpg-system
+    - fromEndpoints:
+        - {}
 ---
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
