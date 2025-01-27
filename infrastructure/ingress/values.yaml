@@ -494,7 +494,7 @@ controller:
     loadBalancerSourceRanges: []
     # -- Load balancer class of the external controller service. Used by cloud providers to select a load balancer implementation other than the cloud provider default.
     # Ref: https://kubernetes.io/docs/concepts/services-networking/service/#load-balancer-class
-    loadBalancerClass: ""
+    loadBalancerClass: "io.cilium/node"
     # -- Enable node port allocation for the external controller service or not. Applies to type `LoadBalancer` only.
     # Ref: https://kubernetes.io/docs/concepts/services-networking/service/#load-balancer-nodeport-allocation
     # allocateLoadBalancerNodePorts: true
