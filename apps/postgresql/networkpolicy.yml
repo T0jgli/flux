@@ -6,8 +6,7 @@ spec:
   endpointSelector: {}
   ingress:
     - fromEndpoints:
-        - matchLabels:
-            io.kubernetes.pod.namespace: postgresql
+        - {}
 ---
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
@@ -32,3 +31,6 @@ spec:
       toPorts:
         - ports:
             - port: "5432"
+    - fromEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: cnpg-system
