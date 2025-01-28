@@ -1,0 +1,9 @@
+driver:
+  kind: modern_ebpf
+#falcoctl:
+#  artifact:
+#    install:
+#      enabled: false
+#    follow:
+#      enabled: false
+tty: true
