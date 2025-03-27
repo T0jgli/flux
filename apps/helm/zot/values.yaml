@@ -2,6 +2,8 @@ image:
   repository: ghcr.io/project-zot/zot-linux-arm64
 
 persistence: true
+pvc:
+  create: true
 
 ingress:
   enabled: true
