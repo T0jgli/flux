@@ -23,5 +23,5 @@ ingress:
         - path: /
   tls:
     - hosts:
-        - pgadmin.kvlk.local
+        - zot.kvlk.local
       secretName: zot-tls
