@@ -1,13 +1,13 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-namespace: zot
-resources:
-  - secrets.yaml
-  - zot.yaml
+# apiVersion: kustomize.config.k8s.io/v1beta1
+# kind: Kustomization
+# namespace: zot
+# resources:
+#   - secrets.yaml
+#   - zot.yaml
 
-configMapGenerator:
-  - name: zot-values
-    files:
-      - values.yaml=values.yaml
-configurations:
-  - kustomizeconfig.yaml
+# configMapGenerator:
+#   - name: zot-values
+#     files:
+#       - values.yaml=values.yaml
+# configurations:
+#   - kustomizeconfig.yaml
