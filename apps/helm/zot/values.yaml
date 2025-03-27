@@ -19,5 +19,7 @@ ingress:
     nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
   hosts:
     - host: zot.kvlk.local
+      paths:
+        - path: /
   tls:
     - secretName: zot-tls
