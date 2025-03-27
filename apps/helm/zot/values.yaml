@@ -13,40 +13,40 @@ mountConfig: true
 configFiles:
   config.json: |-
     {
-      "storage": {
-        "rootDirectory": "/var/lib/registry"
-      },
-      "http": {
-        "address": "0.0.0.0",
-        "port": "5000",
-        "auth": {
-          "htpasswd": {
-            "path": "/secret/registry-credentials"
-          }
+        "storage": {
+            "rootDirectory": "/var/lib/registry"
         },
-        "accessControl": {
-          "repositories": {
-            "**": {
-              "policies": [
-                {
-                  "users": [
-                    "local"
-                  ],
-                  "actions": [
-                    "read",
-                    "create",
-                    "update",
-                    "delete"
-                  ]
+        "http": {
+            "address": "0.0.0.0",
+            "port": "5000",
+            "auth": {
+                "htpasswd": {
+                    "path": "/secret/registry-credentials"
                 }
-              ]
+            },
+            "accessControl": {
+                "repositories": {
+                    "**": {
+                        "policies": [
+                            {
+                                "users": [
+                                    "local"
+                                ],
+                                "actions": [
+                                    "read",
+                                    "create",
+                                    "update",
+                                    "delete"
+                                ]
+                            }
+                        ]
+                    }
+                }
             }
-          }
         },
         "log": {
-          "level": "debug"
+            "level": "debug"
         }
-      }
     }
 
 ingress:
