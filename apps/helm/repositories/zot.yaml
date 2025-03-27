@@ -1,0 +1,8 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: zot
+  namespace: flux-system
+spec:
+  interval: 1m
+  url: http://zotregistry.dev/helm-charts
