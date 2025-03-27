@@ -38,7 +38,7 @@ configFiles:
                     "update",
                     "delete"
                   ]
-                },
+                }
               ]
             }
           }
