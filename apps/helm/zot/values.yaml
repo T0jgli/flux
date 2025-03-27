@@ -9,6 +9,7 @@ externalSecrets:
   - secretName: "registry-credentials"
     mountPath: "/secrets/registry-credentials"
 
+mountConfig: true
 configFiles:
   config.json: |-
     {
