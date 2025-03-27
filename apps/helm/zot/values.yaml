@@ -1,6 +1,8 @@
 image:
   repository: ghcr.io/project-zot/zot-linux-arm64
 
+persistence: true
+
 ingress:
   enabled: true
   className: nginx-internal
