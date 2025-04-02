@@ -5629,6 +5629,7 @@ spec:
             - --leader-election-namespace=kube-system
             - --acme-http01-solver-image=quay.io/jetstack/cert-manager-acmesolver:v1.14.5
             - --max-concurrent-challenges=60
+            - --enable-gateway-api
           ports:
             - containerPort: 9402
               name: http-metrics
