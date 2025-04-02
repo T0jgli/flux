@@ -18,6 +18,9 @@ spec:
       hostname: capacitor.kvlk.local
       protocol: HTTPS
       port: 9443
+      allowedRoutes:
+        namespaces:
+          from: All
       tls:
         mode: Terminate
         certificateRefs:

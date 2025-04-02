@@ -51,6 +51,7 @@ metadata:
 spec:
   parentRefs:
     - name: eg-internal
+      namespace: envoy-gateway-system
   hostnames:
     - "capacitor.kvlk.local"
   rules:
