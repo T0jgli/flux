@@ -27,22 +27,24 @@ spec:
             type: PathPrefix
             value: /.well-known/webfinger
       filters:
-        - type: URLRewrite
-          urlRewrite:
+        - type: RequestRedirect
+          requestRedirect:
             path:
-              type: ReplacePrefixMatch
-              replacePrefixMatch: /index.php/.well-known/webfinger
+              type: ReplaceFullPath
+              replaceFullPath: /index.php/.well-known/webfinger
+            statusCode: 301
 
     - matches:
         - path:
             type: PathPrefix
             value: /.well-known/nodeinfo
       filters:
-        - type: URLRewrite
-          urlRewrite:
+        - type: RequestRedirect
+          requestRedirect:
             path:
-              type: ReplacePrefixMatch
-              replacePrefixMatch: /index.php/.well-known/nodeinfo
+              type: ReplaceFullPath
+              replaceFullPath: /index.php/.well-known/nodeinfo
+            statusCode: 301
 
     - matches:
         - path:
@@ -54,17 +56,6 @@ spec:
             path:
               type: ReplaceFullPath
               replaceFullPath: /public.php?service=host-meta
-
-    - matches:
-        - path:
-            type: Exact
-            value: /robots.txt
-      filters:
-        - type: ResponseHeaderModifier
-          responseHeaderModifier:
-            set:
-              - name: Permissions-Policy
-                value: "geolocation=(),midi=(),sync-xhr=(),microphone=(),camera=(),magnetometer=(),gyroscope=(),fullscreen=(self),payment=()"
 
     # Redirect rules
     - matches:
