@@ -1,3 +1,7 @@
+image:
+  repository: nextcloud
+  tag: 28.0.7
+
 nextcloud:
   host: nextcloud.kvlk.hu
   existingSecret:
