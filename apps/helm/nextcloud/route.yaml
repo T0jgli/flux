@@ -66,25 +66,6 @@ spec:
               - name: Permissions-Policy
                 value: "geolocation=(),midi=(),sync-xhr=(),microphone=(),camera=(),magnetometer=(),gyroscope=(),fullscreen=(self),payment=()"
 
-    # Security restrictions
-    - matches:
-        - path:
-            type: RegularExpression
-            value: ^/(?:build|tests|config|lib|3rdparty|templates|data)/
-      filters:
-        - type: RequestRedirect
-          requestRedirect:
-            statusCode: 403
-
-    - matches:
-        - path:
-            type: RegularExpression
-            value: ^/(?:autotest|occ|issue|indie|db_|console)/
-      filters:
-        - type: RequestRedirect
-          requestRedirect:
-            statusCode: 403
-
     # Redirect rules
     - matches:
         - path:
