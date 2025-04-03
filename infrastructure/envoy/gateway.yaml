@@ -38,7 +38,7 @@ spec:
     - name: nextcloud
       hostname: "nextcloud.kvlk.hu"
       protocol: HTTPS
-      port: 9443
+      port: 443
       allowedRoutes:
         namespaces:
           from: All
@@ -51,7 +51,7 @@ spec:
     - name: portainer
       hostname: "portainer.kvlk.hu"
       protocol: HTTPS
-      port: 9443
+      port: 443
       allowedRoutes:
         namespaces:
           from: All
@@ -64,7 +64,7 @@ spec:
     - name: websocket-dc
       hostname: "websocket-dc.kvlk.hu"
       protocol: HTTPS
-      port: 9443
+      port: 443
       allowedRoutes:
         namespaces:
           from: All
@@ -77,7 +77,7 @@ spec:
     - name: registry
       hostname: "registry.kvlk.hu"
       protocol: HTTPS
-      port: 9443
+      port: 443
       allowedRoutes:
         namespaces:
           from: All
