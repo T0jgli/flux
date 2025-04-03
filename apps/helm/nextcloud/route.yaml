@@ -24,7 +24,7 @@ spec:
       filters:
         - type: ResponseHeaderModifier
           responseHeaderModifier:
-            add:
+            set:
               - name: Referrer-Policy
                 value: "no-referrer, strict-origin-when-cross-origin"
               - name: Strict-Transport-Security
@@ -51,7 +51,7 @@ spec:
             statusCode: 301
         - type: ResponseHeaderModifier
           responseHeaderModifier:
-            add:
+            set:
               - name: Referrer-Policy
                 value: "no-referrer, strict-origin-when-cross-origin"
               - name: Strict-Transport-Security
@@ -78,7 +78,7 @@ spec:
             statusCode: 301
         - type: ResponseHeaderModifier
           responseHeaderModifier:
-            add:
+            set:
               - name: Referrer-Policy
                 value: "no-referrer, strict-origin-when-cross-origin"
               - name: Strict-Transport-Security
@@ -104,7 +104,7 @@ spec:
               replaceFullPath: /public.php?service=host-meta
         - type: ResponseHeaderModifier
           responseHeaderModifier:
-            add:
+            set:
               - name: Referrer-Policy
                 value: "no-referrer, strict-origin-when-cross-origin"
               - name: Strict-Transport-Security
@@ -132,7 +132,7 @@ spec:
             statusCode: 301
         - type: ResponseHeaderModifier
           responseHeaderModifier:
-            add:
+            set:
               - name: Referrer-Policy
                 value: "no-referrer, strict-origin-when-cross-origin"
               - name: Strict-Transport-Security
@@ -159,7 +159,7 @@ spec:
             statusCode: 301
         - type: ResponseHeaderModifier
           responseHeaderModifier:
-            add:
+            set:
               - name: Referrer-Policy
                 value: "no-referrer, strict-origin-when-cross-origin"
               - name: Strict-Transport-Security
