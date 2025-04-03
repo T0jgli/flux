@@ -74,7 +74,6 @@ spec:
       filters:
         - type: RequestRedirect
           requestRedirect:
-            hostname: ${HOST}
             path:
               type: ReplaceFullPath
               replaceFullPath: /remote.php/dav
@@ -87,7 +86,6 @@ spec:
       filters:
         - type: RequestRedirect
           requestRedirect:
-            hostname: ${HOST}
             path:
               type: ReplaceFullPath
               replaceFullPath: /remote.php/dav
