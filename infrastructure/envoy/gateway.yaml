@@ -15,7 +15,7 @@ spec:
   gatewayClassName: eg
   listeners:
     - name: capacitor
-      hostname: capacitor.kvlk.local
+      hostname: "*.kvlk.local"
       protocol: HTTPS
       port: 9443
       allowedRoutes:
@@ -24,6 +24,6 @@ spec:
       tls:
         mode: Terminate
         certificateRefs:
-          - name: capacitor-tls-gateway
+          - name: kvlk-local-tls
             kind: Secret
             group: ""
