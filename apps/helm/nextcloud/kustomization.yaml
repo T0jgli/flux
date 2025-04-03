@@ -4,6 +4,7 @@ namespace: nextcloud
 resources:
   - secrets.yaml
   - nextcloud.yaml
+  - route.yaml
 
 configMapGenerator:
   - name: nextcloud-values
