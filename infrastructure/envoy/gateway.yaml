@@ -17,7 +17,7 @@ spec:
     - name: internal
       hostname: "*.kvlk.local"
       protocol: HTTPS
-      port: 9443
+      port: 8443
       allowedRoutes:
         namespaces:
           from: All
