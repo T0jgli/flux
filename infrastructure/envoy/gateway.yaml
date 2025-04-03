@@ -37,7 +37,7 @@ metadata:
 spec:
   gatewayClassName: eg
   listeners:
-    - name: https
+    - name: nextcloud
       hostname: "nextcloud.kvlk.hu"
       protocol: HTTPS
       port: 9443
@@ -50,7 +50,7 @@ spec:
           - name: cloudflare-tls
             kind: Secret
             group: ""
-    - name: https
+    - name: portainer
       hostname: "portainer.kvlk.hu"
       protocol: HTTPS
       port: 9443
@@ -63,7 +63,7 @@ spec:
           - name: cloudflare-tls
             kind: Secret
             group: ""
-    - name: https
+    - name: websocket-dc
       hostname: "websocket-dc.kvlk.hu"
       protocol: HTTPS
       port: 9443
@@ -76,7 +76,7 @@ spec:
           - name: cloudflare-tls
             kind: Secret
             group: ""
-    - name: https
+    - name: registry
       hostname: "registry.kvlk.hu"
       protocol: HTTPS
       port: 9443
