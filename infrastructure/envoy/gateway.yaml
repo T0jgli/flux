@@ -14,7 +14,7 @@ metadata:
 spec:
   gatewayClassName: eg
   listeners:
-    - name: capacitor
+    - name: internal
       hostname: "*.kvlk.local"
       protocol: HTTPS
       port: 9443
@@ -27,3 +27,24 @@ spec:
           - name: kvlk-local-tls
             kind: Secret
             group: ""
+    - name: http
+      protocol: HTTP
+      port: 9443
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: http-filter-redirect
+spec:
+  parentRefs:
+    - name: eg-internal
+      sectionName: http
+  hostnames:
+    - "*.kvlk.local"
+  rules:
+    - filters:
+        - type: RequestRedirect
+          requestRedirect:
+            scheme: https
+            statusCode: 301
+            port: 9443

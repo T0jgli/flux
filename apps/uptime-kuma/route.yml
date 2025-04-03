@@ -7,6 +7,7 @@ spec:
   parentRefs:
     - name: eg-internal
       namespace: envoy-gateway-system
+      sectionName: internal
   hostnames:
     - "uptime.kvlk.local"
   rules:

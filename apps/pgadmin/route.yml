@@ -8,6 +8,7 @@ spec:
   parentRefs:
     - name: eg-internal
       namespace: envoy-gateway-system
+      sectionName: internal
   hostnames:
     - "pgadmin.kvlk.local"
   rules:
