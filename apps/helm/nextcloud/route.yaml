@@ -21,3 +21,93 @@ spec:
         - path:
             type: PathPrefix
             value: /
+
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /.well-known/webfinger
+      filters:
+        - type: URLRewrite
+          urlRewrite:
+            path:
+              type: ReplacePrefixMatch
+              replacePrefixMatch: /index.php/.well-known/webfinger
+
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /.well-known/nodeinfo
+      filters:
+        - type: URLRewrite
+          urlRewrite:
+            path:
+              type: ReplacePrefixMatch
+              replacePrefixMatch: /index.php/.well-known/nodeinfo
+
+    - matches:
+        - path:
+            type: Exact
+            value: /.well-known/host-meta
+      filters:
+        - type: URLRewrite
+          urlRewrite:
+            path:
+              type: ReplaceFullPath
+              replaceFullPath: /public.php?service=host-meta
+
+    - matches:
+        - path:
+            type: Exact
+            value: /robots.txt
+      filters:
+        - type: ResponseHeaderModifier
+          responseHeaderModifier:
+            set:
+              - name: Permissions-Policy
+                value: "geolocation=(),midi=(),sync-xhr=(),microphone=(),camera=(),magnetometer=(),gyroscope=(),fullscreen=(self),payment=()"
+
+    # Security restrictions
+    - matches:
+        - path:
+            type: RegularExpression
+            value: ^/(?:build|tests|config|lib|3rdparty|templates|data)/
+      filters:
+        - type: RequestRedirect
+          requestRedirect:
+            statusCode: 403
+
+    - matches:
+        - path:
+            type: RegularExpression
+            value: ^/(?:autotest|occ|issue|indie|db_|console)/
+      filters:
+        - type: RequestRedirect
+          requestRedirect:
+            statusCode: 403
+
+    # Redirect rules
+    - matches:
+        - path:
+            type: Exact
+            value: /.well-known/carddav
+      filters:
+        - type: RequestRedirect
+          requestRedirect:
+            hostname: ${HOST}
+            path:
+              type: ReplaceFullPath
+              replaceFullPath: /remote.php/dav
+            statusCode: 301
+
+    - matches:
+        - path:
+            type: Exact
+            value: /.well-known/caldav
+      filters:
+        - type: RequestRedirect
+          requestRedirect:
+            hostname: ${HOST}
+            path:
+              type: ReplaceFullPath
+              replaceFullPath: /remote.php/dav
+            statusCode: 301
