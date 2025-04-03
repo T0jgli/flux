@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: longhorn-system
 resources:
   - longhorn.yaml
+  - route.yml
 
 configMapGenerator:
   - name: longhorn-values

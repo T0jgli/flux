@@ -1,0 +1,22 @@
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: timetagger
+spec:
+  parentRefs:
+    - name: eg-internal
+      namespace: envoy-gateway-system
+  hostnames:
+    - "timetagger.kvlk.local"
+  rules:
+    - backendRefs:
+        - group: ""
+          kind: Service
+          name: timetagger
+          port: 80
+          weight: 1
+      matches:
+        - path:
+            type: PathPrefix
+            value: /

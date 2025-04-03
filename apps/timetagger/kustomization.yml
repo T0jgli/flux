@@ -10,4 +10,4 @@ resources:
   - ns.yml
   - secret.yml
   - deployment.yml
-  - ingress.yml
+  - route.yml

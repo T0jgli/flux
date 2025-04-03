@@ -7,4 +7,4 @@ resources:
   - ns/pgadmin.yml
   - secret/pgadmin-secret.yml
   - pgadmin.yml
-  - ingress.yml
+  - route.yml
