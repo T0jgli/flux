@@ -32,7 +32,7 @@ spec:
               - name: X-Content-Type-Options
                 value: "nosniff"
               - name: X-Frame-Options
-                value: "DENY"
+                value: "SAMEORIGIN"
               - name: X-XSS-Protection
                 value: "1; mode=block"
               - name: Permissions-Policy
@@ -59,7 +59,7 @@ spec:
               - name: X-Content-Type-Options
                 value: "nosniff"
               - name: X-Frame-Options
-                value: "DENY"
+                value: "SAMEORIGIN"
               - name: X-XSS-Protection
                 value: "1; mode=block"
               - name: Permissions-Policy
@@ -86,7 +86,7 @@ spec:
               - name: X-Content-Type-Options
                 value: "nosniff"
               - name: X-Frame-Options
-                value: "DENY"
+                value: "SAMEORIGIN"
               - name: X-XSS-Protection
                 value: "1; mode=block"
               - name: Permissions-Policy
@@ -112,7 +112,7 @@ spec:
               - name: X-Content-Type-Options
                 value: "nosniff"
               - name: X-Frame-Options
-                value: "DENY"
+                value: "SAMEORIGIN"
               - name: X-XSS-Protection
                 value: "1; mode=block"
               - name: Permissions-Policy
@@ -140,7 +140,7 @@ spec:
               - name: X-Content-Type-Options
                 value: "nosniff"
               - name: X-Frame-Options
-                value: "DENY"
+                value: "SAMEORIGIN"
               - name: X-XSS-Protection
                 value: "1; mode=block"
               - name: Permissions-Policy
@@ -167,7 +167,7 @@ spec:
               - name: X-Content-Type-Options
                 value: "nosniff"
               - name: X-Frame-Options
-                value: "DENY"
+                value: "SAMEORIGIN"
               - name: X-XSS-Protection
                 value: "1; mode=block"
               - name: Permissions-Policy
