@@ -44,30 +44,29 @@ spec:
         - matchLabels:
             io.kubernetes.pod.namespace: envoy-gateway-system
 ---
-
----
-apiVersion: gateway.networking.k8s.io/v1
-kind: HTTPRoute
-metadata:
-  name: capacitor
-  namespace: flux-system
-spec:
-  parentRefs:
-    - name: eg-internal
-      namespace: envoy-gateway-system
-  hostnames:
-    - "capacitor.kvlk.local"
-  rules:
-    - backendRefs:
-        - group: ""
-          kind: Service
-          name: capacitor
-          port: 9000
-          weight: 1
-      matches:
-        - path:
-            type: PathPrefix
-            value: /
+# ---
+# apiVersion: gateway.networking.k8s.io/v1
+# kind: HTTPRoute
+# metadata:
+#   name: capacitor
+#   namespace: flux-system
+# spec:
+#   parentRefs:
+#     - name: eg-internal
+#       namespace: envoy-gateway-system
+#   hostnames:
+#     - "capacitor.kvlk.local"
+#   rules:
+#     - backendRefs:
+#         - group: ""
+#           kind: Service
+#           name: capacitor
+#           port: 9000
+#           weight: 1
+#       matches:
+#         - path:
+#             type: PathPrefix
+#             value: /
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
