@@ -21,6 +21,22 @@ spec:
         - path:
             type: PathPrefix
             value: /
+      filters:
+        - type: ResponseHeaderModifier
+          responseHeaderModifier:
+            add:
+              - name: Referrer-Policy
+                value: "no-referrer, strict-origin-when-cross-origin"
+              - name: Strict-Transport-Security
+                value: "max-age=63072000; includeSubDomains"
+              - name: X-Content-Type-Options
+                value: "nosniff"
+              - name: X-Frame-Options
+                value: "DENY"
+              - name: X-XSS-Protection
+                value: "1; mode=block"
+              - name: Permissions-Policy
+                value: "geolocation=(),midi=(),sync-xhr=(),microphone=(),camera=(),magnetometer=(),gyroscope=(),fullscreen=(self),payment=()"
 
     - matches:
         - path:
@@ -33,6 +49,21 @@ spec:
               type: ReplaceFullPath
               replaceFullPath: /index.php/.well-known/webfinger
             statusCode: 301
+        - type: ResponseHeaderModifier
+          responseHeaderModifier:
+            add:
+              - name: Referrer-Policy
+                value: "no-referrer, strict-origin-when-cross-origin"
+              - name: Strict-Transport-Security
+                value: "max-age=63072000; includeSubDomains"
+              - name: X-Content-Type-Options
+                value: "nosniff"
+              - name: X-Frame-Options
+                value: "DENY"
+              - name: X-XSS-Protection
+                value: "1; mode=block"
+              - name: Permissions-Policy
+                value: "geolocation=(),midi=(),sync-xhr=(),microphone=(),camera=(),magnetometer=(),gyroscope=(),fullscreen=(self),payment=()"
 
     - matches:
         - path:
@@ -45,6 +76,21 @@ spec:
               type: ReplaceFullPath
               replaceFullPath: /index.php/.well-known/nodeinfo
             statusCode: 301
+        - type: ResponseHeaderModifier
+          responseHeaderModifier:
+            add:
+              - name: Referrer-Policy
+                value: "no-referrer, strict-origin-when-cross-origin"
+              - name: Strict-Transport-Security
+                value: "max-age=63072000; includeSubDomains"
+              - name: X-Content-Type-Options
+                value: "nosniff"
+              - name: X-Frame-Options
+                value: "DENY"
+              - name: X-XSS-Protection
+                value: "1; mode=block"
+              - name: Permissions-Policy
+                value: "geolocation=(),midi=(),sync-xhr=(),microphone=(),camera=(),magnetometer=(),gyroscope=(),fullscreen=(self),payment=()"
 
     - matches:
         - path:
@@ -56,6 +102,21 @@ spec:
             path:
               type: ReplaceFullPath
               replaceFullPath: /public.php?service=host-meta
+        - type: ResponseHeaderModifier
+          responseHeaderModifier:
+            add:
+              - name: Referrer-Policy
+                value: "no-referrer, strict-origin-when-cross-origin"
+              - name: Strict-Transport-Security
+                value: "max-age=63072000; includeSubDomains"
+              - name: X-Content-Type-Options
+                value: "nosniff"
+              - name: X-Frame-Options
+                value: "DENY"
+              - name: X-XSS-Protection
+                value: "1; mode=block"
+              - name: Permissions-Policy
+                value: "geolocation=(),midi=(),sync-xhr=(),microphone=(),camera=(),magnetometer=(),gyroscope=(),fullscreen=(self),payment=()"
 
     # Redirect rules
     - matches:
@@ -69,6 +130,21 @@ spec:
               type: ReplaceFullPath
               replaceFullPath: /remote.php/dav
             statusCode: 301
+        - type: ResponseHeaderModifier
+          responseHeaderModifier:
+            add:
+              - name: Referrer-Policy
+                value: "no-referrer, strict-origin-when-cross-origin"
+              - name: Strict-Transport-Security
+                value: "max-age=63072000; includeSubDomains"
+              - name: X-Content-Type-Options
+                value: "nosniff"
+              - name: X-Frame-Options
+                value: "DENY"
+              - name: X-XSS-Protection
+                value: "1; mode=block"
+              - name: Permissions-Policy
+                value: "geolocation=(),midi=(),sync-xhr=(),microphone=(),camera=(),magnetometer=(),gyroscope=(),fullscreen=(self),payment=()"
 
     - matches:
         - path:
@@ -81,3 +157,18 @@ spec:
               type: ReplaceFullPath
               replaceFullPath: /remote.php/dav
             statusCode: 301
+        - type: ResponseHeaderModifier
+          responseHeaderModifier:
+            add:
+              - name: Referrer-Policy
+                value: "no-referrer, strict-origin-when-cross-origin"
+              - name: Strict-Transport-Security
+                value: "max-age=63072000; includeSubDomains"
+              - name: X-Content-Type-Options
+                value: "nosniff"
+              - name: X-Frame-Options
+                value: "DENY"
+              - name: X-XSS-Protection
+                value: "1; mode=block"
+              - name: Permissions-Policy
+                value: "geolocation=(),midi=(),sync-xhr=(),microphone=(),camera=(),magnetometer=(),gyroscope=(),fullscreen=(self),payment=()"
