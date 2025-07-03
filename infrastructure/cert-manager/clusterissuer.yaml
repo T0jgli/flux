@@ -15,8 +15,11 @@ spec:
     # Enable the HTTP-01 challenge provider
     solvers:
       - http01:
-          ingress:
-            class: nginx
+          gatewayHTTPRoute:
+            parentRefs:
+              - kind: Gateway
+                name: eg
+                namespace: default
 
 ---
 apiVersion: cert-manager.io/v1
