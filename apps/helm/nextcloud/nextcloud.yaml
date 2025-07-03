@@ -11,7 +11,7 @@ spec:
     spec:
       chart: nextcloud
       reconcileStrategy: ChartVersion
-      version: "6.6.9"
+      version: "6.6.10"
       sourceRef:
         kind: HelmRepository
         name: nextcloud

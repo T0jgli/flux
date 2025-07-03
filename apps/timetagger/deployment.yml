@@ -17,7 +17,7 @@ spec:
           ports:
             - containerPort: 80
               name: web
-          image: ghcr.io/almarklein/timetagger:v24.07.1-nonroot
+          image: ghcr.io/almarklein/timetagger:v25.06.1-nonroot
           envFrom:
             - secretRef:
                 name: timetagger-env
