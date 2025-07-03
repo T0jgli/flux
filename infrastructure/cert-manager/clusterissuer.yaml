@@ -19,7 +19,7 @@ spec:
             parentRefs:
               - kind: Gateway
                 name: eg
-                namespace: default
+                namespace: envoy-gateway-system
 
 ---
 apiVersion: cert-manager.io/v1
