@@ -84,7 +84,7 @@ spec:
       tls:
         mode: Terminate
         certificateRefs:
-          - name: registry-tls
+          - name: registry-tls-l9bxx
             kind: Secret
             group: ""
             namespace: registry
