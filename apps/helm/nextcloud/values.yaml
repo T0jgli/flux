@@ -38,8 +38,9 @@ externalDatabase:
 
 redis:
   enabled: true
-  existingSecret: "nextcloud-redis"
-  existingSecretPasswordKey: "redis-password"
+  auth:
+    existingSecret: "nextcloud-redis"
+    existingSecretPasswordKey: "redis-password"
   architecture: standalone
 
 global:
