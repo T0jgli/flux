@@ -21,6 +21,9 @@ spec:
             - containerPort: 53
               hostPort: 53
               protocol: UDP
+            - containerPort: 53
+              hostPort: 53
+              protocol: TCP
           securityContext:
             capabilities:
               add: ["NET_BIND_SERVICE"]
