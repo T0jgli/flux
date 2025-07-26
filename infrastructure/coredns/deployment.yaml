@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: custom-coredns
+  namespace: kube-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: custom-coredns
+  template:
+    metadata:
+      labels:
+        app: custom-coredns
+    spec:
+      containers:
+        - name: coredns
+          image: coredns/coredns:latest
+          args: ["-conf", "/etc/coredns/Corefile"]
+          ports:
+            - containerPort: 53
+              hostPort: 53
+              protocol: UDP
+          securityContext:
+            capabilities:
+              add: ["NET_BIND_SERVICE"]
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/coredns
+      volumes:
+        - name: config-volume
+          configMap:
+            name: custom-coredns
+      nodeSelector:
+        kubernetes.io/hostname: jatek
