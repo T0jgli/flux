@@ -8,6 +8,8 @@ spec:
   selector:
     matchLabels:
       app: custom-coredns
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
