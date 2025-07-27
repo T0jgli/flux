@@ -27,7 +27,7 @@ spec:
           - name: kvlk-local-tls
             kind: Secret
             group: ""
-    - name: http-redirect
+    - name: internal-http-redirect
       protocol: HTTP
       port: 8443
 ---
