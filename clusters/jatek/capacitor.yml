@@ -55,7 +55,7 @@ spec:
       namespace: envoy-gateway-system
       sectionName: internal
   hostnames:
-    - "capacitor.kvlk.local"
+    - "capacitor.local.kvlk.hu"
   rules:
     - backendRefs:
         - group: ""
