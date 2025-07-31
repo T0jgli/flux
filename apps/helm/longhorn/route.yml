@@ -10,7 +10,7 @@ spec:
       namespace: envoy-gateway-system
       sectionName: internal
   hostnames:
-    - "lh.local.kvlk.hu"
+    - "lh.kvlk.local"
   rules:
     - backendRefs:
         - group: ""

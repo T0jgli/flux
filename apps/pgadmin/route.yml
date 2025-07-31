@@ -10,7 +10,7 @@ spec:
       namespace: envoy-gateway-system
       sectionName: internal
   hostnames:
-    - "pgadmin.local.kvlk.hu"
+    - "pgadmin.kvlk.local"
   rules:
     - backendRefs:
         - group: ""

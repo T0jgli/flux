@@ -15,7 +15,7 @@ spec:
   gatewayClassName: eg
   listeners:
     - name: internal
-      hostname: "*.local.kvlk.hu"
+      hostname: "*.kvlk.local"
       protocol: HTTPS
       port: 8443
       allowedRoutes:
