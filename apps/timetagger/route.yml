@@ -10,7 +10,7 @@ spec:
       namespace: envoy-gateway-system
       sectionName: internal
   hostnames:
-    - "timetagger.kvlk.local"
+    - "timetagger.local.kvlk.hu"
   rules:
     - backendRefs:
         - group: ""

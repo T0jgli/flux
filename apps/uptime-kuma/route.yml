@@ -9,7 +9,7 @@ spec:
       namespace: envoy-gateway-system
       sectionName: internal
   hostnames:
-    - "uptime.kvlk.local"
+    - "uptime.local.kvlk.hu"
   rules:
     - backendRefs:
         - group: ""
