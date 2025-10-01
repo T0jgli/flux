@@ -84,10 +84,16 @@ spec:
       tls:
         mode: Terminate
         certificateRefs:
-          - name: registry-tls
+          - name: cloudflare-tls
             kind: Secret
             group: ""
-            namespace: registry
+      # tls:
+      #   mode: Terminate
+      #   certificateRefs:
+      #     - name: registry-tls
+      #       kind: Secret
+      #       group: ""
+      #       namespace: registry
     - name: http-redirect
       protocol: HTTP
       port: 80
