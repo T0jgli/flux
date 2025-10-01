@@ -1,9 +1,3 @@
-apiVersion: gateway.networking.k8s.io/v1
-kind: GatewayClass
-metadata:
-  name: eg
-spec:
-  controllerName: gateway.envoyproxy.io/gatewayclass-controller
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
@@ -12,7 +6,7 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: "custom-ca-issuer"
 spec:
-  gatewayClassName: eg
+  gatewayClassName: cilium
   listeners:
     - name: internal
       hostname: "*.kvlk.local"
@@ -33,7 +27,7 @@ kind: Gateway
 metadata:
   name: eg
 spec:
-  gatewayClassName: eg
+  gatewayClassName: cilium
   listeners:
     - name: nextcloud
       hostname: "nextcloud.kvlk.hu"
