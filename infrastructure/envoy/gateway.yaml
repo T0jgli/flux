@@ -77,7 +77,7 @@ spec:
     - name: registry
       hostname: "registry.kvlk.hu"
       protocol: HTTPS
-      port: 443
+      port: 80
       allowedRoutes:
         namespaces:
           from: All
