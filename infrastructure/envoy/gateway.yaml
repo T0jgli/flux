@@ -77,20 +77,20 @@ spec:
     - name: registry
       hostname: "registry.kvlk.hu"
       protocol: HTTPS
-      port: 80
+      port: 443
       allowedRoutes:
         namespaces:
           from: All
-    #   tls:
-    #     mode: Terminate
-    #     certificateRefs:
-    #       - name: registry-tls
-    #         kind: Secret
-    #         group: ""
-    #         namespace: registry
-    # - name: http-redirect
-    #   protocol: HTTP
-    #   port: 80
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - name: registry-tls
+            kind: Secret
+            group: ""
+            namespace: registry
+    - name: http-redirect
+      protocol: HTTP
+      port: 80
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
