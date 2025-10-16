@@ -3,4 +3,4 @@ config:
   kind: ControllerConfiguration
   enableGatewayAPI: true
 crds:
-  enable: true
+  enabled: true
