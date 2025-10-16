@@ -4,7 +4,7 @@ namespace: cert-manager
 
 resources:
   - cert-manager.yaml
-  # - clusterissuer.yaml
+  - clusterissuer.yaml
 
 configMapGenerator:
   - name: cert-manager-values
