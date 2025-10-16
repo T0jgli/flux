@@ -1,8 +1,9 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-  name: sealed-secrets
+  name: cert-manager
   namespace: flux-system
 spec:
   interval: 10m
-  url: https://bitnami-labs.github.io/sealed-secrets
+  type: oci
+  url: oci://quay.io/jetstack/charts
