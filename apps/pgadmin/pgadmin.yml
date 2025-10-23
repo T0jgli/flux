@@ -48,7 +48,7 @@ metadata:
   name: pgadmin-pv-claim
   namespace: pgadmin
 spec:
-  storageClassName: longhorn
+  storageClassName: local-path
   accessModes:
     - ReadWriteOnce
   resources:
