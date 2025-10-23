@@ -31,6 +31,7 @@ spec:
     # or fully-qualified. Optional.
     excludedResources:
       - storageclasses.storage.k8s.io
+      - customresourcedefinitions
     # Whether or not to include cluster-scoped resources. Valid values are true, false, and
     # null/unset. If true, all cluster-scoped resources are included (subject to included/excluded
     # resources and the label selector). If false, no cluster-scoped resources are included. If unset,
