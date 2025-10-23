@@ -42,7 +42,7 @@ spec:
     # up are those associated with namespace-scoped resources included in the scheduled backup. For example, if a
     # PersistentVolumeClaim is included in the backup, its associated PersistentVolume (which is
     # cluster-scoped) would also be backed up.
-    includeClusterResources: false
+    includeClusterResources: null
     # Individual objects must match this label selector to be included in the scheduled backup. Optional.
     # labelSelector: {}
     # Whether or not to snapshot volumes. This only applies to PersistentVolumes for Azure, GCE, and
