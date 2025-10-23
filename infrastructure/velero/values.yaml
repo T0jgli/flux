@@ -1,13 +1,13 @@
 configuration:
   provider: aws
   backupStorageLocation:
-    name: default
-    bucket: tojglibackup
-    config:
-      region: eu-central-1
+    - name: default
+      bucket: tojglibackup
+      config:
+        region: eu-central-1
   volumeSnapshotLocation:
-    name: default
-    provider: aws
+    - name: default
+      provider: aws
 
 credentials:
   existingSecret: aws-secret
