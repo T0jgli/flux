@@ -24,6 +24,7 @@ spec:
       - kube-node-lease
       - kube-public
       - kube-system
+      - flux-system
       # Array of resources to include in the scheduled backup. Resources may be shortcuts (e.g. 'po' for 'pods')
     # or fully-qualified. If unspecified, all resources are included. Optional.
     includedResources:
