@@ -4,7 +4,7 @@ metadata:
   name: arc-runner
   namespace: flux-system
 spec:
-  interval: 5m
+  interval: 10m
   targetNamespace: arc-runners
   releaseName: ownrunners
   chart:

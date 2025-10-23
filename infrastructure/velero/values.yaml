@@ -1,0 +1,20 @@
+configuration:
+  provider: aws
+  backupStorageLocation:
+    name: default
+    bucket: tojglibackup
+    config:
+      region: eu-central-1
+  volumeSnapshotLocation:
+    name: default
+    provider: aws
+
+credentials:
+  existingSecret: aws-secret
+
+initContainers:
+  - name: velero-plugin-for-aws
+    image: velero/velero-plugin-for-aws:v1.13.0
+    volumeMounts:
+      - mountPath: /target
+        name: plugins

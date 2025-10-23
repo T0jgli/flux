@@ -4,7 +4,7 @@ metadata:
   name: falco
   namespace: falco
 spec:
-  interval: 5m
+  interval: 10m
   targetNamespace: falco
   releaseName: falco
   chart:

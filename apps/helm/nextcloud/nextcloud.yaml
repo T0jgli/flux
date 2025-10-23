@@ -4,7 +4,7 @@ metadata:
   name: nextcloud
   namespace: flux-system
 spec:
-  interval: 5m
+  interval: 10m
   targetNamespace: nextcloud
   releaseName: nextcloud
   chart:

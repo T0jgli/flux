@@ -4,7 +4,7 @@ metadata:
   name: arc
   namespace: flux-system
 spec:
-  interval: 5m
+  interval: 10m
   targetNamespace: arc-systems
   releaseName: arc
   install:
