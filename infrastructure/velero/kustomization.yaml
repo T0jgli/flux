@@ -5,6 +5,7 @@ namespace: velero
 resources:
   - secret.yaml
   - velero.yaml
+  - schedule.yaml
 
 configMapGenerator:
   - name: velero-values
