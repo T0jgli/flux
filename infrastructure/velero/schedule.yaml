@@ -31,7 +31,6 @@ spec:
     # or fully-qualified. Optional.
     excludedResources:
       - storageclasses.storage.k8s.io
-      - customresourcedefinitions
     # Whether or not to include cluster-scoped resources. Valid values are true, false, and
     # null/unset. If true, all cluster-scoped resources are included (subject to included/excluded
     # resources and the label selector). If false, no cluster-scoped resources are included. If unset,
@@ -43,7 +42,7 @@ spec:
     # cluster-scoped) would also be backed up.
     includeClusterResources: null
     # Individual objects must match this label selector to be included in the scheduled backup. Optional.
-    labelSelector: {}
+    # labelSelector: {}
     # Whether or not to snapshot volumes. This only applies to PersistentVolumes for Azure, GCE, and
     # AWS. Valid values are true, false, and null/unset. If unset, Velero performs snapshots as long as
     # a persistent volume provider is configured for Velero.
