@@ -36,7 +36,7 @@ spec:
         name: kuma-data
       spec:
         accessModes: ["ReadWriteOnce"]
-        storageClassName: longhorn
+        storageClassName: local-path
         volumeMode: Filesystem
         resources:
           requests:
