@@ -26,11 +26,13 @@ spec:
       - kube-system
       # Array of resources to include in the scheduled backup. Resources may be shortcuts (e.g. 'po' for 'pods')
     # or fully-qualified. If unspecified, all resources are included. Optional.
-    # includedResources: []
+    includedResources:
+      - pv
+      - pvc
     # Array of resources to exclude from the scheduled backup. Resources may be shortcuts (e.g. 'po' for 'pods')
     # or fully-qualified. Optional.
-    excludedResources:
-      - storageclasses.storage.k8s.io
+    # excludedResources:
+    #   - storageclasses.storage.k8s.io
     # Whether or not to include cluster-scoped resources. Valid values are true, false, and
     # null/unset. If true, all cluster-scoped resources are included (subject to included/excluded
     # resources and the label selector). If false, no cluster-scoped resources are included. If unset,
@@ -40,7 +42,7 @@ spec:
     # up are those associated with namespace-scoped resources included in the scheduled backup. For example, if a
     # PersistentVolumeClaim is included in the backup, its associated PersistentVolume (which is
     # cluster-scoped) would also be backed up.
-    includeClusterResources: null
+    includeClusterResources: false
     # Individual objects must match this label selector to be included in the scheduled backup. Optional.
     # labelSelector: {}
     # Whether or not to snapshot volumes. This only applies to PersistentVolumes for Azure, GCE, and
