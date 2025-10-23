@@ -18,3 +18,7 @@ initContainers:
     volumeMounts:
       - mountPath: /target
         name: plugins
+
+kubectl:
+  image:
+    repository: registry.k8s.io/kubectl
