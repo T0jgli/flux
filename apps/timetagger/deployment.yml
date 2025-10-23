@@ -39,7 +39,7 @@ apiVersion: v1
 metadata:
   name: timetagger-pv-claim
 spec:
-  storageClassName: longhorn
+  storageClassName: local-path
   accessModes:
     - ReadWriteOnce
   resources:
