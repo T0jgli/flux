@@ -28,6 +28,7 @@ spec:
     # or fully-qualified. Optional.
     excludedResources:
       - storageclasses.storage.k8s.io
+
     # Whether or not to include cluster-scoped resources. Valid values are true, false, and
     # null/unset. If true, all cluster-scoped resources are included (subject to included/excluded
     # resources and the label selector). If false, no cluster-scoped resources are included. If unset,
@@ -57,7 +58,3 @@ spec:
     # executing a command in a container in a pod using the pod exec API. Optional.
     hooks: {}
     defaultVolumesToFsBackup: true
-    excludedClusterScopedResources:
-      - volumesnapshotcontents.snapshot.storage.k8s.io
-    excludedNamespaceScopedResources:
-      - volumesnapshots.snapshot.storage.k8s.io
