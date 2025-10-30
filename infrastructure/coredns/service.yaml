@@ -5,7 +5,7 @@ metadata:
   namespace: kube-system
 spec:
   selector:
-    app: custom-coredns
+    k8s-app: kube-dns
   type: LoadBalancer
   ports:
     - name: dns-udp
