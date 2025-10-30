@@ -15,6 +15,7 @@ spec:
         app: uptime-kuma
     spec:
       hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: uptime-kuma
           image: louislam/uptime-kuma:1.23.16
