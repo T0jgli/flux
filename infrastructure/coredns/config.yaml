@@ -9,6 +9,11 @@ data:
       errors
       cache 30
       template IN A {
+        match ^neoline\.kvlk\.local\.$
+        answer "{{ .Name }} 60 IN A 10.0.0.161"
+        fallthrough
+      }
+      template IN A {
         match ^.*\.kvlk\.local\.$
         answer "{{ .Name }} 60 IN A 10.0.0.70"
         fallthrough
