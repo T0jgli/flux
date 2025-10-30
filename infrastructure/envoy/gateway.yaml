@@ -61,6 +61,19 @@ spec:
           - name: cloudflare-tls
             kind: Secret
             group: ""
+    - name: uptime
+      hostname: "uptime.kvlk.hu"
+      protocol: HTTPS
+      port: 443
+      allowedRoutes:
+        namespaces:
+          from: All
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - name: cloudflare-tls
+            kind: Secret
+            group: ""
     - name: websocket-dc
       hostname: "websocket-dc.kvlk.hu"
       protocol: HTTPS
