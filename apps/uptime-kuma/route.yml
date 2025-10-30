@@ -46,8 +46,17 @@ spec:
             type: Exact
             value: /status/neoline
         - path:
+            type: Exact
+            value: /icon.svg
+        - path:
+            type: Exact
+            value: /api/status-page/heartbeat/neoline
+        - path:
             type: PathPrefix
             value: /assets
         - path:
             type: PathPrefix
             value: /api/neoline
+        - path:
+            type: PathPrefix
+            value: /api/status-page/neoline
