@@ -4,3 +4,4 @@ namespace: portainer
 resources:
   - portainer.yaml
   - route.yaml
+  - networkpolicy.yml
