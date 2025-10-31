@@ -7,7 +7,6 @@ spec:
     matchLabels:
       gateway.envoyproxy.io/owning-gateway-name: eg-internal
       app.kubernetes.io/name: envoy
-      io.kubernetes.pod.namespace: envoy-gateway-system
   ingress:
     - fromCIDRSet:
         - cidr: 10.0.0.0/16
@@ -24,7 +23,6 @@ spec:
     matchLabels:
       gateway.envoyproxy.io/owning-gateway-name: eg
       app.kubernetes.io/name: envoy
-      io.kubernetes.pod.namespace: envoy-gateway-system
   ingress:
     - fromEntities:
         - world
