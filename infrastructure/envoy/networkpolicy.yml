@@ -1,0 +1,33 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-clients-internal
+spec:
+  endpointSelector:
+    matchLabels:
+      gateway.envoyproxy.io/owning-gateway-name: eg-internal
+      app.kubernetes.io/name: envoy
+      io.kubernetes.pod.namespace: envoy-gateway-system
+  ingress:
+    - fromCIDRSet:
+        - cidr: 10.0.0.0/16
+      toPorts:
+        - ports:
+            - port: "6443"
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-clients-public
+spec:
+  endpointSelector:
+    matchLabels:
+      gateway.envoyproxy.io/owning-gateway-name: eg
+      app.kubernetes.io/name: envoy
+      io.kubernetes.pod.namespace: envoy-gateway-system
+  ingress:
+    - fromEntities:
+        - world
+      toPorts:
+        - ports:
+            - port: "443"
