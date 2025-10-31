@@ -28,6 +28,7 @@ spec:
     - fromEntities:
         - world
         - cluster
+        - host
       toPorts:
         - ports:
             - port: "443"
