@@ -8,12 +8,14 @@ spec:
       gateway.envoyproxy.io/owning-gateway-name: eg-internal
       app.kubernetes.io/name: envoy
   ingress:
-    - fromCIDRSet:
-        - cidr: 10.0.0.0/16
-        - cidr: 172.0.0.0/8
+    - fromEndpoints:
+        - matchLabels:
+            svccontroller.k3s.cattle.io/svcname: envoy-envoy-gateway-system-eg-internal-9fd0ad6d
+            io.kubernetes.pod.namespace: kube-system
       toPorts:
         - ports:
             - port: "8443"
+              protocol: TCP
 ---
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
@@ -25,11 +27,13 @@ spec:
       gateway.envoyproxy.io/owning-gateway-name: eg
       app.kubernetes.io/name: envoy
   ingress:
-    - fromEntities:
-        - world
-        - cluster
-        - host
+    - fromEndpoints:
+        - matchLabels:
+            svccontroller.k3s.cattle.io/svcname: envoy-envoy-gateway-system-eg-5391c79d
+            io.kubernetes.pod.namespace: kube-system
       toPorts:
         - ports:
             - port: "443"
+              protocol: TCP
             - port: "80"
+              protocol: TCP
