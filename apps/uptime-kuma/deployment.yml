@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: uptime-kuma
-  namespace: kuma
 spec:
   replicas: 1
   serviceName: uptime-kuma-service
@@ -14,8 +13,6 @@ spec:
       labels:
         app: uptime-kuma
     spec:
-      # hostNetwork: true
-      # dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: uptime-kuma
           image: louislam/uptime-kuma:2.0.2

@@ -12,3 +12,4 @@ resources:
   - service.yml
   - deployment.yml
   - route.yml
+  - networkpolicy.yml
