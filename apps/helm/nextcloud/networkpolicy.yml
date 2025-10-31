@@ -14,4 +14,4 @@ spec:
             io.kubernetes.pod.namespace: envoy-gateway-system
       toPorts:
         - ports:
-            - port: "8080"
+            - port: "80"
