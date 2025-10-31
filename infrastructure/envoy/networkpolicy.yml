@@ -10,6 +10,7 @@ spec:
   ingress:
     - fromCIDRSet:
         - cidr: 10.0.0.0/16
+        - cidr: 172.0.0.0/8
       toPorts:
         - ports:
             - port: "8443"
@@ -26,6 +27,7 @@ spec:
   ingress:
     - fromEntities:
         - world
+        - cluster
       toPorts:
         - ports:
             - port: "443"
