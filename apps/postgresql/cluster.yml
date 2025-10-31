@@ -3,7 +3,7 @@ kind: Cluster
 metadata:
   name: default
 spec:
-  instances: 2
+  instances: 1
   env:
     - name: TZ
       value: Europe/Budapest
