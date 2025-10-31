@@ -11,3 +11,4 @@ resources:
   - secret.yml
   - deployment.yml
   - route.yml
+  - networkpolicy.yml

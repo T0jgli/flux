@@ -8,3 +8,4 @@ resources:
   - secret/pgadmin-secret.yml
   - pgadmin.yml
   - route.yml
+  - networkpolicy.yml
