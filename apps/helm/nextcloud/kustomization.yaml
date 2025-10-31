@@ -5,6 +5,7 @@ resources:
   - secrets.yaml
   - nextcloud.yaml
   - route.yaml
+  - networkpolicy.yml
 
 configMapGenerator:
   - name: nextcloud-values
