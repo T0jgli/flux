@@ -6,11 +6,11 @@ metadata:
   namespace: portainer
 spec:
   parentRefs:
-    - name: eg
+    - name: eg-internal
       namespace: envoy-gateway-system
-      sectionName: portainer
+      sectionName: internal
   hostnames:
-    - "portainer.kvlk.hu"
+    - "portainer.kvlk.local"
   rules:
     - backendRefs:
         - group: ""

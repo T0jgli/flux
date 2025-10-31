@@ -9,7 +9,7 @@ spec:
   ingress:
     - fromEndpoints:
         - matchLabels:
-            gateway.envoyproxy.io/owning-gateway-name: eg
+            gateway.envoyproxy.io/owning-gateway-name: eg-internal
             app.kubernetes.io/name: envoy
             io.kubernetes.pod.namespace: envoy-gateway-system
       toPorts:
