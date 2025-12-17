@@ -1,0 +1,12 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: dragonfly-network-policy
+spec:
+  endpointSelector:
+    matchLabels:
+      app.kubernetes.io/name: dragonfly
+  ingress:
+    - fromEndpoints:
+        - matchLabels:
+            app.kubernetes.io/name: harbor

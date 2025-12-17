@@ -6,3 +6,4 @@ resources:
   - cluster.yml
   - pooler.yml
   - networkpolicy.yml
+  - databases.yml

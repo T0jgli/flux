@@ -23,6 +23,13 @@ spec:
         comment: NextCloud App
         login: true
         superuser: true
+      - name: harbor
+        ensure: present
+        passwordSecret:
+          name: harbor-user
+        comment: harbor App
+        login: true
+        superuser: true
   postgresql:
     shared_preload_libraries: ["passwordcheck"]
     parameters:

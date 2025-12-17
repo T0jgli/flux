@@ -106,6 +106,19 @@ spec:
             kind: Secret
             group: ""
             namespace: registry
+    - name: harbor
+      hostname: "harbor.kvlk.hu"
+      protocol: HTTPS
+      port: 443
+      allowedRoutes:
+        namespaces:
+          from: All
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - name: cloudflare-tls
+            kind: Secret
+            group: ""
     - name: http-redirect
       protocol: HTTP
       port: 80

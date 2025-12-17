@@ -1,0 +1,38 @@
+database:
+  type: external
+  external:
+    host: pooler.postgresql.svc
+    username: harbor
+    databaseName: harbor
+    coreDatabase: harbor
+    clairDatabase: harbor-clair
+    notaryServerDatabase: "harbor-notary-server"
+    notarySignerDatabase: "harbor-notary-signer"
+    existingSecret: db-secret
+    sslmode: "require"
+
+expose:
+  type: route
+  route:
+    parentRefs:
+      - name: eg
+        namespace: envoy-gateway-system
+        sectionName: harbor
+    hosts:
+      - harbor.kvlk.hu
+
+updateStrategy:
+  type: Recreate
+
+externalURL: https://harbor.kvlk.hu
+
+notary:
+  enabled: false
+
+clair:
+  enabled: false
+
+redis:
+  type: external
+  external:
+    addr: harbor-dragonfly

@@ -34,3 +34,10 @@ spec:
       toPorts:
         - ports:
             - port: "5432"
+    - fromEndpoints:
+        - matchLabels:
+            app.kubernetes.io/name: harbor
+            io.kubernetes.pod.namespace: harbor
+      toPorts:
+        - ports:
+            - port: "5432"
