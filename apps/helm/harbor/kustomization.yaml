@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: harbor
 resources:
   - secrets.yaml
+  - dragonfly.yaml
   - harbor.yaml
   - networkpolicy.yaml
 
