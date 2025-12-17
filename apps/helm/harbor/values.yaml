@@ -14,6 +14,7 @@ database:
 expose:
   tls:
     enabled: false
+    certSource: none
   type: route
   route:
     parentRefs:
