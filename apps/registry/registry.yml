@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
         - name: registry
-          image: registry:2
+          image: registry:3.0
           env:
             - name: REGISTRY_AUTH
               value: htpasswd
