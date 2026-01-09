@@ -52,4 +52,4 @@ spec:
   cluster:
     name: default
   name: keycloak
-  owner: harbor
+  owner: keycloak
