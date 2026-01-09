@@ -121,7 +121,7 @@ spec:
             group: ""
     - name: keycloak
       hostname: "keycloak.kvlk.hu"
-      protocol: HTTPS
+      protocol: TLS
       port: 443
       allowedRoutes:
         namespaces:
