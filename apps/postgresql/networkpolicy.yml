@@ -43,7 +43,7 @@ spec:
             - port: "5432"
     - fromEndpoints:
         - matchLabels:
-            k8s-app: keycloak
+            app: keycloak
             io.kubernetes.pod.namespace: keycloak
       toPorts:
         - ports:

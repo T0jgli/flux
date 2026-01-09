@@ -5,7 +5,7 @@ metadata:
 spec:
   endpointSelector:
     matchLabels:
-      k8s-app: keycloak
+      app: keycloak
   ingress:
     - fromEndpoints:
         - matchLabels:
