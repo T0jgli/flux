@@ -119,6 +119,15 @@ spec:
           - name: cloudflare-tls
             kind: Secret
             group: ""
+    - name: keycloak
+      hostname: "keycloak.kvlk.hu"
+      protocol: HTTPS
+      port: 443
+      allowedRoutes:
+        namespaces:
+          from: All
+      tls:
+        mode: Passthrough
     - name: http-redirect
       protocol: HTTP
       port: 80

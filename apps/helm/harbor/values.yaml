@@ -39,3 +39,38 @@ redis:
   type: external
   external:
     addr: harbor-dragonfly
+
+portal:
+  image:
+    repository: docker.io/tojgli/goharbor/harbor-portal
+    tag: dev
+
+core:
+  image:
+    repository: docker.io/tojgli/goharbor/harbor-core
+    tag: dev
+
+jobservice:
+  image:
+    repository: docker.io/tojgli/goharbor/harbor-jobservice
+    tag: dev
+
+registry:
+  registry:
+    image:
+      repository: docker.io/tojgli/goharbor/registry-photon
+      tag: dev
+  controller:
+    image:
+      repository: docker.io/tojgli/goharbor/harbor-registryctl
+      tag: dev
+
+trivy:
+  image:
+    repository: docker.io/tojgli/goharbor/trivy-adapter-photon
+    tag: dev
+
+exporter:
+  image:
+    repository: docker.io/tojgli/goharbor/harbor-exporter
+    tag: dev

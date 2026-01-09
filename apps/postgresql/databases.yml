@@ -42,3 +42,14 @@ spec:
     name: default
   name: harbor-notary-signer
   owner: harbor
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: Database
+metadata:
+  generation: 1
+  name: keycloak
+spec:
+  cluster:
+    name: default
+  name: keycloak
+  owner: harbor

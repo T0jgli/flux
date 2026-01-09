@@ -1,0 +1,27 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-clients
+spec:
+  endpointSelector:
+    matchLabels:
+      k8s-app: keycloak
+  ingress:
+    - fromEndpoints:
+        - matchLabels:
+            gateway.envoyproxy.io/owning-gateway-name: eg
+            app.kubernetes.io/name: envoy
+            io.kubernetes.pod.namespace: envoy-gateway-system
+      toPorts:
+        - ports:
+            - port: "443"
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: deny-from-other-namespaces
+spec:
+  endpointSelector: {} # Applies to all pods in the namespace
+  ingress:
+    - fromEndpoints:
+        - {} # Allow from same namespace (pods without any specific labels)

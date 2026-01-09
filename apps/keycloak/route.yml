@@ -1,0 +1,23 @@
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: TLSRoute
+metadata:
+  name: keycloak
+spec:
+  parentRefs:
+    - name: eg
+      namespace: envoy-gateway-system
+      sectionName: keycloak
+  hostnames:
+    - "keycloak.kvlk.hu"
+  rules:
+    - backendRefs:
+        - group: ""
+          kind: Service
+          name: keycloak
+          port: 443
+          weight: 1
+      matches:
+        - path:
+            type: PathPrefix
+            value: /

@@ -1,0 +1,29 @@
+apiVersion: k8s.keycloak.org/v2alpha1
+kind: Keycloak
+metadata:
+  name: keycloak
+  namespace: keycloak
+spec:
+  instances: 1
+  db:
+    vendor: postgres
+    host: pooler.postgresql.svc
+    usernameSecret:
+      name: keycloaksecret
+      key: dbusername
+    passwordSecret:
+      name: keycloaksecret
+      key: dbpassword
+  http:
+    tlsSecret: keycloak-tls
+    httpsPort: 443
+    httpEnabled: false
+  hostname:
+    hostname: keycloak.kvlk.hu
+  bootstrapAdmin:
+    user:
+      secret: keycloaksecret
+  ingress:
+    enabled: false
+  serviceMonitor:
+    enabled: false
