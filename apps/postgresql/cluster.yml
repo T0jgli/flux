@@ -30,6 +30,14 @@ spec:
         comment: harbor App
         login: true
         superuser: true
+      - name: keycloak
+        ensure: present
+        passwordSecret:
+          name: keycloak-user
+        comment: keycloak user
+        login: true
+        connectionLimit: -1
+        inherit: true
   postgresql:
     shared_preload_libraries: ["passwordcheck"]
     parameters:
