@@ -29,3 +29,6 @@ spec:
     enabled: false
   serviceMonitor:
     enabled: false
+  additionalOptions:
+    - name: proxy-headers
+      value: "xforwarded"
