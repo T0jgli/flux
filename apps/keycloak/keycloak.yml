@@ -20,7 +20,7 @@ spec:
   hostname:
     hostname: https://keycloak.kvlk.hu
     admin: https://keycloak.kvlk.local:8443
-    backchannelDynamic: false
+    backchannelDynamic: true
   bootstrapAdmin:
     user:
       secret: keycloaksecret
