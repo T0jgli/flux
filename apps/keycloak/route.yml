@@ -57,6 +57,15 @@ spec:
             type: PathPrefix
             value: /
       filters:
+        - type: RequestHeaderModifier
+          requestHeaderModifier:
+            set:
+              - name: X-Forwarded-Proto
+                value: https
+              - name: X-Forwarded-Port
+                value: "8443"
+              - name: X-Forwarded-Host
+                value: keycloak.kvlk.local
         - type: ResponseHeaderModifier
           responseHeaderModifier:
             add:
