@@ -39,6 +39,8 @@ spec:
                 value: "nosniff"
               - name: X-Frame-Options
                 value: "SAMEORIGIN"
+              - name: Content-Security-Policy
+                value: "frame-ancestors 'self' https://keycloak.kvlk.local:8443"
               - name: X-XSS-Protection
                 value: "1; mode=block"
             add:
