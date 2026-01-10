@@ -62,22 +62,6 @@ spec:
             type: PathPrefix
             value: /
       filters:
-        - type: ResponseHeaderModifier
-          responseHeaderModifier:
-            set:
-              - name: Referrer-Policy
-                value: "no-referrer, strict-origin-when-cross-origin"
-              - name: Strict-Transport-Security
-                value: "max-age=63072000; includeSubDomains"
-              - name: X-Content-Type-Options
-                value: "nosniff"
-              - name: X-Frame-Options
-                value: "SAMEORIGIN"
-              - name: X-XSS-Protection
-                value: "1; mode=block"
-            add:
-              - name: Permissions-Policy
-                value: "geolocation=(),midi=(),sync-xhr=(),microphone=(),camera=(),magnetometer=(),gyroscope=(),fullscreen=(self),payment=()"
         - type: RequestHeaderModifier
           requestHeaderModifier:
             set:
