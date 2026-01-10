@@ -63,7 +63,7 @@ spec:
       matches:
         - path:
             type: PathPrefix
-            value: /admin
+            value: /
       filters:
         - type: ResponseHeaderModifier
           responseHeaderModifier:
