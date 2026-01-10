@@ -15,11 +15,12 @@ spec:
       name: keycloaksecret
       key: dbpassword
   http:
-    tlsSecret: keycloak-tls
-    httpsPort: 443
-    httpEnabled: false
+    httpEnabled: true
+    httpPort: 8080
   hostname:
-    hostname: keycloak.kvlk.hu
+    hostname: https://keycloak.kvlk.hu
+    admin: https://keycloak.kvlk.local:8443/admin
+    backchannelDynamic: true
   bootstrapAdmin:
     user:
       secret: keycloaksecret
