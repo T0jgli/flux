@@ -19,7 +19,7 @@ spec:
     httpPort: 8080
   hostname:
     hostname: https://keycloak.kvlk.hu
-    admin: https://keycloak.kvlk.local:8443
+    admin: https://keycloak.kvlk.local:8443/admin
     backchannelDynamic: true
   bootstrapAdmin:
     user:
