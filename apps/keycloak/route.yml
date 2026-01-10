@@ -30,11 +30,6 @@ spec:
       filters:
         - type: ResponseHeaderModifier
           responseHeaderModifier:
-            set:
-              - name: Referrer-Policy
-                value: "no-referrer, strict-origin-when-cross-origin"
-              - name: Strict-Transport-Security
-                value: "max-age=63072000; includeSubDomains"
             add:
               - name: Permissions-Policy
                 value: "geolocation=(),midi=(),sync-xhr=(),microphone=(),camera=(),magnetometer=(),gyroscope=(),fullscreen=(self),payment=()"
@@ -62,12 +57,8 @@ spec:
             type: PathPrefix
             value: /
       filters:
-        - type: RequestHeaderModifier
-          requestHeaderModifier:
-            set:
-              - name: X-Forwarded-Proto
-                value: https
-              - name: X-Forwarded-Port
-                value: "8443"
-              - name: X-Forwarded-Host
-                value: keycloak.kvlk.local
+        - type: ResponseHeaderModifier
+          responseHeaderModifier:
+            add:
+              - name: Permissions-Policy
+                value: "geolocation=(),midi=(),sync-xhr=(),microphone=(),camera=(),magnetometer=(),gyroscope=(),fullscreen=(self),payment=()"
