@@ -18,9 +18,9 @@ spec:
     httpEnabled: true
     httpPort: 8080
   hostname:
-    #hostname: https://keycloak.kvlk.hu
-    #admin: https://keycloak.kvlk.local:8443
-    strict: false
+    hostname: https://keycloak.kvlk.hu
+    admin: https://keycloak.kvlk.local:8443
+    # strict: false
   bootstrapAdmin:
     user:
       secret: keycloaksecret
