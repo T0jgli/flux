@@ -84,6 +84,6 @@ spec:
               - name: X-Forwarded-Proto
                 value: https
               - name: X-Forwarded-Port
-                value: "443"
+                value: "8443"
               - name: X-Forwarded-Host
                 value: keycloak.kvlk.local
