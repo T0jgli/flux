@@ -78,3 +78,12 @@ spec:
             add:
               - name: Permissions-Policy
                 value: "geolocation=(),midi=(),sync-xhr=(),microphone=(),camera=(),magnetometer=(),gyroscope=(),fullscreen=(self),payment=()"
+        - type: RequestHeaderModifier
+          requestHeaderModifier:
+            set:
+              - name: X-Forwarded-Proto
+                value: https
+              - name: X-Forwarded-Port
+                value: "443"
+              - name: X-Forwarded-Host
+                value: keycloak.kvlk.local
