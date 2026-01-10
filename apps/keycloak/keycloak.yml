@@ -26,8 +26,6 @@ spec:
     enabled: false
   serviceMonitor:
     enabled: false
-  proxy:
-    headers: xforwarded
   additionalOptions:
     - name: log-level
       value: "DEBUG" # Options: INFO, DEBUG, TRACE, ALL
