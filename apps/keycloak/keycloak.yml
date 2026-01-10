@@ -27,6 +27,8 @@ spec:
       secret: keycloaksecret
   ingress:
     enabled: false
+  networkpolicy:
+    enabled: false
   serviceMonitor:
     enabled: false
   additionalOptions:
