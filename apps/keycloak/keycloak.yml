@@ -15,6 +15,7 @@ spec:
       name: keycloaksecret
       key: dbpassword
   http:
+    admin: https://keycloak.kvlk.local:8443
     httpEnabled: true
     httpPort: 8080
   hostname:
