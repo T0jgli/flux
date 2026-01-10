@@ -17,6 +17,8 @@ spec:
   http:
     httpEnabled: true
     httpPort: 8080
+  hostname:
+    strict: true
   bootstrapAdmin:
     user:
       secret: keycloaksecret
