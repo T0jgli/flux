@@ -1,4 +1,4 @@
-apiVersion: cilium.io/v2
+apiVersion: "cilium.io/v2"
 kind: CiliumNetworkPolicy
 metadata:
   name: allow-clients
@@ -9,10 +9,38 @@ spec:
   ingress:
     - fromEndpoints:
         - matchLabels:
+            gateway.envoyproxy.io/owning-gateway-name: eg-internal
+            app.kubernetes.io/name: envoy
             io.kubernetes.pod.namespace: envoy-gateway-system
       toPorts:
         - ports:
             - port: "8080"
+              protocol: TCP
+          rules:
+            http:
+              - method: ".*"
+                path: ".*"
+                headers:
+                  - "X-Forwarded-Proto: https"
+                  - "X-Forwarded-Port: 8443"
+                  - "X-Forwarded-Host: keycloak.kvlk.local"
+    - fromEndpoints:
+        - matchLabels:
+            gateway.envoyproxy.io/owning-gateway-name: eg
+            app.kubernetes.io/name: envoy
+            io.kubernetes.pod.namespace: envoy-gateway-system
+      toPorts:
+        - ports:
+            - port: "8080"
+              protocol: TCP
+          rules:
+            http:
+              - method: ".*"
+                path: "^/realms/.*"
+              - method: ".*"
+                path: "^/resources/.*"
+              - method: ".*"
+                path: "^/.well-known/.*"
 ---
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
