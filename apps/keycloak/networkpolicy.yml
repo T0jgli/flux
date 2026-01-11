@@ -1,7 +1,7 @@
-apiVersion: cilium.io/v2
+apiVersion: "cilium.io/v2"
 kind: CiliumNetworkPolicy
 metadata:
-  name: allow-clients
+  name: keycloak-path-restriction
 spec:
   endpointSelector:
     matchLabels:
@@ -9,10 +9,35 @@ spec:
   ingress:
     - fromEndpoints:
         - matchLabels:
+            gateway.envoyproxy.io/owning-gateway-name: eg-internal
+            app.kubernetes.io/name: envoy
             io.kubernetes.pod.namespace: envoy-gateway-system
       toPorts:
         - ports:
             - port: "8080"
+              protocol: TCP
+          rules:
+            http:
+              - method: ".*"
+                path: ".*"
+
+    - fromEndpoints:
+        - matchLabels:
+            gateway.envoyproxy.io/owning-gateway-name: eg
+            app.kubernetes.io/name: envoy
+            io.kubernetes.pod.namespace: envoy-gateway-system
+      toPorts:
+        - ports:
+            - port: "8080"
+              protocol: TCP
+          rules:
+            http:
+              - method: ".*"
+                path: "^/realms/.*"
+              - method: ".*"
+                path: "^/resources/.*"
+              - method: ".*"
+                path: "^/.well-known/.*"
 ---
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy

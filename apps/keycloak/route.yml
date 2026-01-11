@@ -26,7 +26,7 @@ spec:
             value: /resources
         - path:
             type: PathPrefix
-            value: /well-known
+            value: /.well-known
       filters:
         - type: ResponseHeaderModifier
           responseHeaderModifier:
