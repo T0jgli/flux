@@ -20,6 +20,8 @@ spec:
             http:
               - method: ".*"
                 path: ".*"
+                headers:
+                  - "X-Forwarded-Proto: https"
 
     - fromEndpoints:
         - matchLabels:
