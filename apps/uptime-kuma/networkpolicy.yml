@@ -1,4 +1,5 @@
-apiVersion: cilium.io/v2
+---
+apiVersion: "cilium.io/v2"
 kind: CiliumNetworkPolicy
 metadata:
   name: allow-clients
@@ -9,7 +10,49 @@ spec:
   ingress:
     - fromEndpoints:
         - matchLabels:
+            gateway.envoyproxy.io/owning-gateway-name: eg-internal
+            app.kubernetes.io/name: envoy
             io.kubernetes.pod.namespace: envoy-gateway-system
       toPorts:
         - ports:
             - port: "3001"
+              protocol: TCP
+          rules:
+            http:
+              - method: ".*"
+                path: ".*"
+
+    - fromEndpoints:
+        - matchLabels:
+            gateway.envoyproxy.io/owning-gateway-name: eg
+            app.kubernetes.io/name: envoy
+            io.kubernetes.pod.namespace: envoy-gateway-system
+      toPorts:
+        - ports:
+            - port: "3001"
+              protocol: TCP
+          rules:
+            http:
+              # Global
+              - method: ".*"
+                path: "/icon.svg"
+              - method: ".*"
+                path: "^/assets/.*"
+              # Neoline
+              - method: ".*"
+                path: "/status/neoline"
+              - method: ".*"
+                path: "/api/status-page/heartbeat/neoline"
+              - method: ".*"
+                path: "^/api/neoline/.*"
+              - method: ".*"
+                path: "^/api/status-page/neoline/.*"
+              # KBBudapest
+              - method: ".*"
+                path: "/status/kbbudapest"
+              - method: ".*"
+                path: "/api/status-page/heartbeat/kbbudapest"
+              - method: ".*"
+                path: "^/api/kbbudapest/.*"
+              - method: ".*"
+                path: "^/api/status-page/kbbudapest/.*"
