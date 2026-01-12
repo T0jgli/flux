@@ -30,3 +30,21 @@ metadata:
 spec:
   ca:
     secretName: ca-key-pair
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-poc
+  namespace: cert-manager
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: kovalikadam@gmail.com
+    privateKeySecretRef:
+      name: letsencrypt-poc
+    solvers:
+      - dns01:
+          cloudflare:
+            apiTokenSecretRef:
+              name: cloudflare-api-token-secret
+              key: api-token
