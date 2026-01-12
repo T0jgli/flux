@@ -5,39 +5,6 @@ metadata:
   namespace: cert-manager
 spec:
   acme:
-    # The ACME server URL
-    server: https://acme-v02.api.letsencrypt.org/directory
-    # Email address used for ACME registration
-    email: kovalikadam@gmail.com
-    # Name of a secret used to store the ACME account private key
-    privateKeySecretRef:
-      name: letsencrypt-prod
-    # Enable the HTTP-01 challenge provider
-    solvers:
-      - http01:
-          gatewayHTTPRoute:
-            parentRefs:
-              - kind: Gateway
-                name: eg
-                namespace: envoy-gateway-system
-
----
-apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
-metadata:
-  name: custom-ca-issuer
-  namespace: cert-manager
-spec:
-  ca:
-    secretName: ca-key-pair
----
-apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
-metadata:
-  name: letsencrypt-poc
-  namespace: cert-manager
-spec:
-  acme:
     server: https://acme-v02.api.letsencrypt.org/directory
     email: kovalikadam@gmail.com
     privateKeySecretRef:
@@ -48,3 +15,13 @@ spec:
             apiTokenSecretRef:
               name: cloudflare-api-token-secret
               key: api-token
+
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: custom-ca-issuer
+  namespace: cert-manager
+spec:
+  ca:
+    secretName: ca-key-pair
