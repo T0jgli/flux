@@ -26,7 +26,7 @@ spec:
                   key: password
             - name: PGUSER
               value: "admin"
-            - name: POSTGRES_DB
+            - name: PGDATABASE
               value: "postgres"
             - name: PGHOST
               value: "pooler"
