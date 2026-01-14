@@ -20,9 +20,7 @@ configFiles:
       "log": { "level": "debug" },
       "extensions": {
         "search": {
-          "cve": {
-            "updateInterval": "2h"
-          }
+          "enable": false
         },
         "ui": {
           "enable": true
