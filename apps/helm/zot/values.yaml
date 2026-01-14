@@ -1,0 +1,34 @@
+configFiles:
+  config.json: |-
+    {
+      "storage": { "rootDirectory": "/var/lib/registry" },
+      "http": {
+        "address": "0.0.0.0",
+        "port": "5000",
+        "auth": { "htpasswd": { "path": "/secret/local" } },
+        "accessControl": {
+          "repositories": {
+            "**": {
+              "policies": [{
+                "users": ["user"],
+                "actions": ["read"]
+              }],
+              "defaultPolicy": []
+            }
+          },
+          "adminPolicy": {
+            "users": ["local"],
+            "actions": ["read", "create", "update", "delete"]
+          }
+        }
+      },
+      "log": { "level": "debug" }
+    }
+externalSecrets:
+  - secretName: "local-user"
+    mountPath: "/secret/local"
+
+persistence: true
+
+pvc:
+  create: true
