@@ -42,7 +42,8 @@ spec:
   endpointSelector:
     matchLabels:
       app: postgres-migrate
-  ingress: {}
+  ingress:
+    - {}
   egress:
     - toEndpoints:
         - matchLabels:
