@@ -15,3 +15,5 @@ spec:
       toPorts:
         - ports:
             - port: "80"
+  egress:
+    - {}
