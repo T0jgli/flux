@@ -16,11 +16,11 @@ spec:
     storageClass: local-path
   managed:
     roles:
-      - name: nextcloud
+      - name: admin
         ensure: present
         passwordSecret:
-          name: nextcloud-user
-        comment: NextCloud App
+          name: admin-user
+        comment: admin
         login: true
         superuser: true
       - name: harbor
