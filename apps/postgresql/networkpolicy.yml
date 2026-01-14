@@ -33,3 +33,31 @@ spec:
       toPorts:
         - ports:
             - port: "5432"
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-migrate
+spec:
+  endpointSelector:
+    matchLabels:
+      cnpg.io/podRole: pooler
+  ingress: {}
+  egress:
+    - toEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: kube-system
+            k8s-app: kube-dns
+      toPorts:
+        - ports:
+            - port: "53"
+              protocol: UDP
+          rules:
+            dns:
+              - matchPattern: "*"
+    - toEndpoints:
+        - matchLabels:
+            cnpg.io/podRole: pooler
+      toPorts:
+        - ports:
+            - port: "5432"
