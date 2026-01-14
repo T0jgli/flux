@@ -4,6 +4,7 @@ namespace: zot
 resources:
   - secrets.yml
   - zot.yaml
+  - route.yml
 
 configMapGenerator:
   - name: zot-values

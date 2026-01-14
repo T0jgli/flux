@@ -32,3 +32,6 @@ persistence: true
 
 pvc:
   create: true
+
+service:
+  type: ClusterIP
