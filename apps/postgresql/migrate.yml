@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-migrate
+  labels:
+    app: postgres-migrate
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres-migrate
+  template:
+    metadata:
+      labels:
+        app: postgres-migrate
+    spec:
+      containers:
+        - name: postgrestest
+          image: postgres
+          command: ["/bin/sleep", "3650d"]
+          env:
+            - name: PGPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: admin-user
+                  key: password

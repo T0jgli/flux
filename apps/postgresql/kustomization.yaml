@@ -7,3 +7,4 @@ resources:
   - pooler.yml
   - networkpolicy.yml
   - databases.yml
+  - migrate.yml
