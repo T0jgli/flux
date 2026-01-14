@@ -18,7 +18,7 @@ spec:
           ports:
             - containerPort: 3000
               name: web
-          image: registry.kvlk.hu/websocket-dc:2-546472a # {"$imagepolicy": "flux-system:websocket-dc-policy"}
+          image: registry.kvlk.hu/websocket-dc:3-25cfaa2 # {"$imagepolicy": "flux-system:websocket-dc-policy"}
           envFrom:
             - secretRef:
                 name: websocket-dc-env
