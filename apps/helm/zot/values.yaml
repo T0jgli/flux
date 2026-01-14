@@ -1,4 +1,4 @@
-mountConfig: false
+mountConfig: true
 configFiles:
   config.json: |-
     {
@@ -23,7 +23,17 @@ configFiles:
           }
         }
       },
-      "log": { "level": "debug" }
+      "log": { "level": "debug" },
+      "extensions": {
+        "search": {
+          "cve": {
+            "updateInterval": "2h"
+          }
+        },
+        "ui": {
+          "enable": true
+        }
+      }
     }
 externalSecrets:
   - secretName: "local-user"
