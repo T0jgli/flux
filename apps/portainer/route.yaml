@@ -36,6 +36,5 @@ spec:
                 value: "SAMEORIGIN"
               - name: X-XSS-Protection
                 value: "1; mode=block"
-            add:
               - name: Permissions-Policy
                 value: "geolocation=(),midi=(),sync-xhr=(),microphone=(),camera=(),magnetometer=(),gyroscope=(),fullscreen=(self),payment=()"
