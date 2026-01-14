@@ -6,7 +6,7 @@ configFiles:
       "http": {
         "address": "0.0.0.0",
         "port": "5000",
-        "auth": { "htpasswd": { "path": "/secret/local" } },
+        "auth": { "htpasswd": { "path": "/secret/htpasswd/htpasswd" } },
         "accessControl": {
           "repositories": {
             "**": {
@@ -36,8 +36,8 @@ configFiles:
       }
     }
 externalSecrets:
-  - secretName: "local-user"
-    mountPath: "/secret/local"
+  - secretName: "htpasswd"
+    mountPath: "/secret/htpasswd"
 
 persistence: true
 
