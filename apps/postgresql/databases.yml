@@ -3,50 +3,6 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Database
 metadata:
   generation: 1
-  name: harbor
-spec:
-  cluster:
-    name: default
-  name: harbor
-  owner: harbor
----
-apiVersion: postgresql.cnpg.io/v1
-kind: Database
-metadata:
-  generation: 1
-  name: harbor-clair
-spec:
-  cluster:
-    name: default
-  name: harbor-clair
-  owner: harbor
----
-apiVersion: postgresql.cnpg.io/v1
-kind: Database
-metadata:
-  generation: 1
-  name: harbor-notary-server
-spec:
-  cluster:
-    name: default
-  name: harbor-notary-server
-  owner: harbor
----
-apiVersion: postgresql.cnpg.io/v1
-kind: Database
-metadata:
-  generation: 1
-  name: harbor-notary-signer
-spec:
-  cluster:
-    name: default
-  name: harbor-notary-signer
-  owner: harbor
----
-apiVersion: postgresql.cnpg.io/v1
-kind: Database
-metadata:
-  generation: 1
   name: keycloak
 spec:
   cluster:
