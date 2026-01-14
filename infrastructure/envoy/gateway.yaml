@@ -92,20 +92,6 @@ spec:
           - name: cloudflare-tls
             kind: Secret
             group: ""
-    - name: registry
-      hostname: "registry.kvlk.hu"
-      protocol: HTTPS
-      port: 443
-      allowedRoutes:
-        namespaces:
-          from: All
-      tls:
-        mode: Terminate
-        certificateRefs:
-          - name: registry-tls
-            kind: Secret
-            group: ""
-            namespace: registry
     - name: zot
       hostname: "registry.kvlk.hu"
       protocol: HTTPS
