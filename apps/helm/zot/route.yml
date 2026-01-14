@@ -5,11 +5,11 @@ metadata:
   name: zot
 spec:
   parentRefs:
-    - name: eg-internal
+    - name: eg
       namespace: envoy-gateway-system
-      sectionName: internal
+      sectionName: zot
   hostnames:
-    - "zot.kvlk.local"
+    - "zot.kvlk.hu"
   rules:
     - backendRefs:
         - group: ""

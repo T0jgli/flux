@@ -106,6 +106,20 @@ spec:
             kind: Secret
             group: ""
             namespace: registry
+    - name: zot
+      hostname: "zot.kvlk.hu"
+      protocol: HTTPS
+      port: 443
+      allowedRoutes:
+        namespaces:
+          from: All
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - name: zot-tls
+            kind: Secret
+            group: ""
+            namespace: zot
     - name: harbor
       hostname: "harbor.kvlk.hu"
       protocol: HTTPS

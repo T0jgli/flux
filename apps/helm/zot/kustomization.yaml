@@ -5,6 +5,7 @@ resources:
   - secrets.yml
   - zot.yaml
   - route.yml
+  - certificate.yml
 
 configMapGenerator:
   - name: zot-values
