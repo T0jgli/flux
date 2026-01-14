@@ -13,9 +13,19 @@ spec:
       labels:
         app: uptime-kuma
     spec:
+      automountServiceAccountToken: false
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
       containers:
         - name: uptime-kuma
           image: louislam/uptime-kuma:2.0.2
+          securityContext:
+            allowPrivilegeEscalation: false
+            privileged: false
+            capabilities:
+              drop:
+                - ALL
           env:
             - name: UPTIME_KUMA_PORT
               value: "3001"

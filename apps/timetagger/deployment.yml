@@ -12,12 +12,23 @@ spec:
       labels:
         app: timetagger
     spec:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
       containers:
         - name: timetagger
           ports:
             - containerPort: 80
               name: web
-          image: ghcr.io/almarklein/timetagger:v25.12.1-nonroot
+          image: ghcr.io/almarklein/timetagger:v26.1.1-nonroot
+          securityContext:
+            allowPrivilegeEscalation: false
+            privileged: false
+            capabilities:
+              drop:
+                - ALL
           envFrom:
             - secretRef:
                 name: timetagger-env
