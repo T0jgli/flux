@@ -5,7 +5,7 @@ configFiles:
     "storage": {
         "rootDirectory": "/var/lib/registry",
         "gc": true,
-        "gcInterval": "24h",
+        "gcInterval": "6h",
         "gcDelay": "1h",
         "retention": {
           "policies": [
@@ -15,7 +15,7 @@ configFiles:
               "deleteUntagged": true,
               "keepTags": [
                 {
-                  "mostRecentlyPushedCount": 5,
+                  "mostRecentlyPushedCount": 3,
                   "patterns": [".*"]
                 }
               ]
