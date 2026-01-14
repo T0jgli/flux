@@ -71,9 +71,7 @@ spec:
         - ports:
             - port: "41411"
         - ports:
-            - port: "2083"
-        - ports:
-            - port: "84433"
+            - port: "8443"
     - toEndpoints:
         - matchLabels:
             io.kubernetes.pod.namespace: kube-system
@@ -87,3 +85,8 @@ spec:
               - matchPattern: "*"
     - toCIDRSet:
         - cidr: 10.0.0.161/32
+    - toFQDNs:
+        - matchName: mortalsoul.23net.hu
+      toPorts:
+        - ports:
+            - port: "2083"
