@@ -20,7 +20,7 @@ configFiles:
       "log": { "level": "debug" },
       "extensions": {
         "search": {
-          "enable": false
+          "enable": true
         },
         "ui": {
           "enable": true
