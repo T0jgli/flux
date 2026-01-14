@@ -13,12 +13,23 @@ spec:
       labels:
         app: websocket-dc
     spec:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
       containers:
         - name: websocket-dc
           ports:
             - containerPort: 3000
               name: web
           image: registry.kvlk.hu/websocket-dc:2-546472a # {"$imagepolicy": "flux-system:websocket-dc-policy"}
+          securityContext:
+            allowPrivilegeEscalation: false
+            privileged: false
+            capabilities:
+              drop:
+                - ALL
           envFrom:
             - secretRef:
                 name: websocket-dc-env

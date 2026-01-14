@@ -29,7 +29,7 @@ metadata:
   name: discord-alert
   namespace: flux-system
 spec:
-  summary: "Cluster addons impacted in neoline cluster"
+  summary: "Cluster addons impacted in jatek cluster"
   providerRef:
     name: discord
   eventSeverity: error
@@ -51,7 +51,7 @@ metadata:
   name: discord-info
   namespace: flux-system
 spec:
-  summary: "Cluster addons impacted in neoline cluster"
+  summary: "Cluster addons impacted in jatek cluster"
   providerRef:
     name: discord
   eventSeverity: info
