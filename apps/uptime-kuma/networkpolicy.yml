@@ -59,6 +59,8 @@ spec:
   egress:
     - toEntities:
         - world
+        - host
+        - remote-node
       toPorts:
         - ports:
             - port: "443"
@@ -68,6 +70,10 @@ spec:
             - port: "465"
         - ports:
             - port: "41411"
+        - ports:
+            - port: "2083"
+        - ports:
+            - port: "84433"
     - toEndpoints:
         - matchLabels:
             io.kubernetes.pod.namespace: kube-system
