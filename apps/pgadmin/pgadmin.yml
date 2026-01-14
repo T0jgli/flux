@@ -22,8 +22,6 @@ spec:
         - name: pgadmin4
           image: dpage/pgadmin4:9.11
           securityContext:
-            allowPrivilegeEscalation: false
-            privileged: false
             capabilities:
               drop:
                 - ALL
