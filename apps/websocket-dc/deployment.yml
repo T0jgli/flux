@@ -13,15 +13,12 @@ spec:
       labels:
         app: websocket-dc
     spec:
-      imagePullSecrets:
-        - name: registry
-      imagePullPolicy: Always
       containers:
         - name: websocket-dc
           ports:
             - containerPort: 3000
               name: web
-          image: registry.kvlk.hu/websocket-dc:latest
+          image: registry.kvlk.hu/websocket-dc:latest # {"$imagepolicy": "flux-system:websocket-dc-policy"}
           envFrom:
             - secretRef:
                 name: websocket-dc-env

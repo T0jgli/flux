@@ -1,0 +1,23 @@
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImageRepository
+metadata:
+  name: websocket-dc
+spec:
+  image: registry.kvlk.hu/websocket-dc
+  interval: 1m
+  secretRef:
+    name: regcred
+---
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImagePolicy
+metadata:
+  name: websocket-dc-policy
+spec:
+  imageRepositoryRef:
+    name: websocket-dc
+  filterTags:
+    pattern: "^(?P<run>[0-9]+)-[a-f0-9]+$"
+    extract: "$run"
+  policy:
+    numerical:
+      order: asc
