@@ -24,6 +24,8 @@ spec:
                 secretKeyRef:
                   name: admin-user
                   key: password
+            - name: PGUSER
+              value: "admin"
             - name: POSTGRES_DB
               value: "postgres"
             - name: PGHOST
