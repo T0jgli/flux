@@ -29,8 +29,6 @@ config:
         K8S-Logging.Parser  On
         K8S-Logging.Exclude Off
 
-        Emitter_Name          re_emitted_logs
-
   outputs: |
     [OUTPUT]
         Name        loki
