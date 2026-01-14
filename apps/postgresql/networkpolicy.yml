@@ -41,7 +41,7 @@ metadata:
 spec:
   endpointSelector:
     matchLabels:
-      cnpg.io/podRole: pooler
+      app: postgres-migrate
   ingress: {}
   egress:
     - toEndpoints:
