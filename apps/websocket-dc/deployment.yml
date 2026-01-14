@@ -23,7 +23,7 @@ spec:
           ports:
             - containerPort: 3000
               name: web
-          image: registry.kvlk.hu/websocket-dc:3-25cfaa2 # {"$imagepolicy": "flux-system:websocket-dc-policy"}
+          image: registry.kvlk.hu/websocket-dc:4-73b2b6e # {"$imagepolicy": "flux-system:websocket-dc-policy"}
           securityContext:
             allowPrivilegeEscalation: false
             privileged: false
