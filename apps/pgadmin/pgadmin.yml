@@ -20,10 +20,6 @@ spec:
       containers:
         - name: pgadmin4
           image: dpage/pgadmin4:9.11
-          securityContext:
-            capabilities:
-              drop:
-                - ALL
           env:
             - name: PGADMIN_DEFAULT_EMAIL
               value: "kovalikadam00@gmail.com"
