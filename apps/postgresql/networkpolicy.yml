@@ -22,26 +22,11 @@ spec:
   ingress:
     - fromEndpoints:
         - matchLabels:
-            app.kubernetes.io/name: nextcloud
-            io.kubernetes.pod.namespace: nextcloud
-      toPorts:
-        - ports:
-            - port: "5432"
-    - fromEndpoints:
-        - matchLabels:
             app: pgadmin
             io.kubernetes.pod.namespace: pgadmin
-      toPorts:
-        - ports:
-            - port: "5432"
-    - fromEndpoints:
         - matchLabels:
             app.kubernetes.io/name: harbor
             io.kubernetes.pod.namespace: harbor
-      toPorts:
-        - ports:
-            - port: "5432"
-    - fromEndpoints:
         - matchLabels:
             app: keycloak
             io.kubernetes.pod.namespace: keycloak
