@@ -1,0 +1,19 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-clients
+spec:
+  endpointSelector:
+    matchLabels:
+      app.kubernetes.io/name: zot
+  ingress:
+    - fromEndpoints:
+        - matchLabels:
+            gateway.envoyproxy.io/owning-gateway-name: eg
+            app.kubernetes.io/name: envoy
+            io.kubernetes.pod.namespace: envoy-gateway-system
+      toPorts:
+        - ports:
+            - port: "5000"
+  egress:
+    - {}
