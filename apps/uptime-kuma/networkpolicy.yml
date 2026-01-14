@@ -56,3 +56,28 @@ spec:
                 path: "^/api/kbbudapest/.*"
               - method: ".*"
                 path: "^/api/status-page/kbbudapest/.*"
+  egress:
+    - toEntities:
+        - world
+      toPorts:
+        - ports:
+            - port: "443"
+        - ports:
+            - port: "80"
+        - ports:
+            - port: "465"
+        - ports:
+            - port: "41411"
+    - toEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: kube-system
+            k8s-app: kube-dns
+      toPorts:
+        - ports:
+            - port: "53"
+              protocol: UDP
+          rules:
+            dns:
+              - matchPattern: "*"
+    - toCIDRSet:
+        - cidr: 10.0.0.161/32
