@@ -9,7 +9,7 @@ spec:
       namespace: envoy-gateway-system
       sectionName: zot
   hostnames:
-    - "zot.kvlk.hu"
+    - "registry.kvlk.hu"
   rules:
     - backendRefs:
         - group: ""

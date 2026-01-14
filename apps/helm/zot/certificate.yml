@@ -4,7 +4,7 @@ metadata:
   name: zot-tls
 spec:
   dnsNames:
-    - zot.kvlk.hu
+    - registry.kvlk.hu
   issuerRef:
     group: cert-manager.io
     kind: ClusterIssuer

@@ -107,7 +107,7 @@ spec:
             group: ""
             namespace: registry
     - name: zot
-      hostname: "zot.kvlk.hu"
+      hostname: "registry.kvlk.hu"
       protocol: HTTPS
       port: 443
       allowedRoutes:
