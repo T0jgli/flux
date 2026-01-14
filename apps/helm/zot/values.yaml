@@ -1,3 +1,4 @@
+mountConfig: true
 configFiles:
   config.json: |-
     {
