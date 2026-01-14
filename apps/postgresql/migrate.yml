@@ -24,3 +24,7 @@ spec:
                 secretKeyRef:
                   name: admin-user
                   key: password
+            - name: POSTGRES_DB
+              value: "postgres"
+            - name: PGHOST
+              value: "pooler"
