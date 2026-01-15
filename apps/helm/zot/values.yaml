@@ -33,7 +33,7 @@ configFiles:
           "failDelay": 5
         },
         "ratelimit": {
-            "rate": 50
+            "rate": 200
         }
       },
       "log": { "level": "debug" },
