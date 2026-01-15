@@ -1,7 +1,7 @@
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
-  name: allow-clients
+  name: websocket-dc
 spec:
   endpointSelector:
     matchLabels:
