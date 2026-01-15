@@ -29,3 +29,5 @@ spec:
               - matchPattern: "*"
     - toEntities:
         - kube-apiserver
+    - toCIDRSet:
+        - cidr: 10.0.0.161/32
