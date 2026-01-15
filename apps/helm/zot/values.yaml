@@ -31,9 +31,6 @@ configFiles:
             "path": "/secret/htpasswd/htpasswd" 
           },
           "failDelay": 5
-        },
-        "ratelimit": {
-            "rate": 200
         }
       },
       "log": { "level": "debug" },
