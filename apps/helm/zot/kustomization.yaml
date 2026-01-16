@@ -7,7 +7,6 @@ resources:
   - route.yml
   - certificate.yml
   - networkpolicy.yml
-  - securitypolicy.yml
 
 configMapGenerator:
   - name: zot-values
