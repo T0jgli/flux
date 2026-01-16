@@ -8,32 +8,12 @@ spec:
   provider:
     type: Kubernetes
     kubernetes:
-      envoyService:
-        type: ClusterIP
       envoyDeployment:
         container:
           resources:
             requests:
               cpu: 0m
               memory: 0Mi
-        patch:
-          type: StrategicMerge
-          value:
-            spec:
-              strategy:
-                type: Recreate
-                rollingUpdate: null
-              template:
-                spec:
-                  containers:
-                    - name: envoy
-                      ports:
-                        - name: https
-                          containerPort: 10443
-                          hostPort: 443
-                        - name: http
-                          containerPort: 10080
-                          hostPort: 80
 ---
 apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: EnvoyProxy
@@ -44,26 +24,9 @@ spec:
   provider:
     type: Kubernetes
     kubernetes:
-      envoyService:
-        type: ClusterIP
       envoyDeployment:
         container:
           resources:
             requests:
               cpu: 0m
               memory: 0Mi
-        patch:
-          type: StrategicMerge
-          value:
-            spec:
-              strategy:
-                type: Recreate
-                rollingUpdate: null
-              template:
-                spec:
-                  containers:
-                    - name: envoy
-                      ports:
-                        - name: internal
-                          containerPort: 8443
-                          hostPort: 8443
