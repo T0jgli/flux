@@ -2,12 +2,32 @@
 apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: EnvoyProxy
 metadata:
-  name: custom-proxy-config
+  name: eg-config
   namespace: envoy-gateway-system
 spec:
   provider:
     type: Kubernetes
     kubernetes:
+      envoyService:
+        type: ClusterIP
+      envoyDeployment:
+        container:
+          resources:
+            requests:
+              cpu: 0m
+              memory: 0Mi
+---
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: EnvoyProxy
+metadata:
+  name: eg-internal-config
+  namespace: envoy-gateway-system
+spec:
+  provider:
+    type: Kubernetes
+    kubernetes:
+      envoyService:
+        type: ClusterIP
       envoyDeployment:
         container:
           resources:

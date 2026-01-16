@@ -7,7 +7,19 @@ spec:
   parametersRef:
     group: gateway.envoyproxy.io
     kind: EnvoyProxy
-    name: custom-proxy-config
+    name: eg-config
+    namespace: envoy-gateway-system
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: GatewayClass
+metadata:
+  name: eg-internal
+spec:
+  controllerName: gateway.envoyproxy.io/gatewayclass-controller
+  parametersRef:
+    group: gateway.envoyproxy.io
+    kind: EnvoyProxy
+    name: eg-internal-config
     namespace: envoy-gateway-system
 ---
 apiVersion: gateway.networking.k8s.io/v1
@@ -17,7 +29,7 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: "custom-ca-issuer"
 spec:
-  gatewayClassName: eg
+  gatewayClassName: eg-internal
   listeners:
     - name: internal
       hostname: "*.kvlk.local"
