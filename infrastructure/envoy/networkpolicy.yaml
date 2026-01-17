@@ -31,7 +31,7 @@ spec:
     - fromEntities:
         - host
         - remote-node
-        - cluster
+        # - cluster
       toPorts:
         - ports:
             - port: "8443"
