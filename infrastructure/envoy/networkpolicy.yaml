@@ -12,6 +12,7 @@ spec:
         - world
         - host
         - remote-node
+        - cluster
       toPorts:
         - ports:
             - port: "10080"
@@ -30,6 +31,7 @@ spec:
     - fromEntities:
         - host
         - remote-node
+        - cluster
       toPorts:
         - ports:
             - port: "8443"
