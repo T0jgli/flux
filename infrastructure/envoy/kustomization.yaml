@@ -6,6 +6,7 @@ resources:
   - envoy.yaml
   - cloudflare-tls.yaml
   - gateway.yaml
+  - networkpolicy.yaml
 
 configurations:
   - kustomizeconfig.yaml
