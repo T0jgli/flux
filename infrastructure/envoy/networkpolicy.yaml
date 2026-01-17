@@ -31,12 +31,18 @@ spec:
     - fromEntities:
         - host
         - remote-node
-        # - cluster
       toPorts:
         - ports:
             - port: "8443"
     - fromCIDRSet:
         - cidr: 100.64.0.0/10
+      toPorts:
+        - ports:
+            - port: "8443"
+    - fromEndpoints:
+        - matchLabels:
+            app: uptime-kuma
+            io.kubernetes.pod.namespace: kuma
       toPorts:
         - ports:
             - port: "8443"
