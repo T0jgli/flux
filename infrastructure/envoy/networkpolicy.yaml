@@ -35,8 +35,8 @@ spec:
       toPorts:
         - ports:
             - port: "8443"
-    - fromCIDRSet:
-        - cidr: 100.64.0.0/10
-      toPorts:
-        - ports:
-            - port: "8443"
+    # - fromCIDRSet:
+    #     - cidr: 100.64.0.0/10
+    #   toPorts:
+    #     - ports:
+    #         - port: "8443"
