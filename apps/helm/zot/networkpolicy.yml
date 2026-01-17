@@ -15,3 +15,8 @@ spec:
       toPorts:
         - ports:
             - port: "5000"
+    - fromEntities:
+        - host
+      toPorts:
+        - ports:
+            - port: "5000"
