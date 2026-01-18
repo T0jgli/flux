@@ -52,32 +52,6 @@ metadata:
 spec:
   gatewayClassName: eg
   listeners:
-    - name: nextcloud
-      hostname: "nextcloud.kvlk.hu"
-      protocol: HTTPS
-      port: 443
-      allowedRoutes:
-        namespaces:
-          from: All
-      tls:
-        mode: Terminate
-        certificateRefs:
-          - name: cloudflare-tls
-            kind: Secret
-            group: ""
-    - name: portainer
-      hostname: "portainer.kvlk.hu"
-      protocol: HTTPS
-      port: 443
-      allowedRoutes:
-        namespaces:
-          from: All
-      tls:
-        mode: Terminate
-        certificateRefs:
-          - name: cloudflare-tls
-            kind: Secret
-            group: ""
     - name: uptime
       hostname: "uptime.kvlk.hu"
       protocol: HTTPS
@@ -118,19 +92,6 @@ spec:
             kind: Secret
             group: ""
             namespace: zot
-    - name: harbor
-      hostname: "harbor.kvlk.hu"
-      protocol: HTTPS
-      port: 443
-      allowedRoutes:
-        namespaces:
-          from: All
-      tls:
-        mode: Terminate
-        certificateRefs:
-          - name: cloudflare-tls
-            kind: Secret
-            group: ""
     - name: keycloak
       hostname: "keycloak.kvlk.hu"
       protocol: HTTPS
