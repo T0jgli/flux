@@ -17,6 +17,9 @@ spec:
           name: zot
           port: 5000
           weight: 1
+      timeouts:
+        request: 60s
+        backendRequest: 30s
       matches:
         - path:
             type: PathPrefix
