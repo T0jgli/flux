@@ -11,7 +11,7 @@ spec:
     spec:
       chart: velero
       reconcileStrategy: ChartVersion
-      version: v11.2.0
+      version: v11.3.2
       sourceRef:
         kind: HelmRepository
         name: vmware-tanzu
