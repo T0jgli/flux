@@ -22,7 +22,7 @@ spec:
           ports:
             - containerPort: 80
               name: web
-          image: ghcr.io/almarklein/timetagger:v26.1.1-nonroot
+          image: ghcr.io/almarklein/timetagger:v26.1.3-nonroot
           securityContext:
             allowPrivilegeEscalation: false
             privileged: false
