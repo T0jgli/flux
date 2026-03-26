@@ -74,9 +74,7 @@ spec:
             - name: N8N_PORT
               value: "5678"
             - name: WEBHOOK_TUNNEL_URL
-              value: "http://<node-ip>:30080"
-            - name: N8N_SECURE_COOKIE
-              value: "false"
+              value: "https://n8n.kvlk.local:8443"
           volumeMounts:
             - name: n8n-data
               mountPath: /home/node/.n8n
