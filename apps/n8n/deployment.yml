@@ -50,9 +50,9 @@ spec:
             periodSeconds: 10
           env:
             - name: DB_TYPE
-              value: postgres
+              value: postgresdb
             - name: DB_POSTGRESDB_HOST
-              value: postgres
+              value: pooler.postgresql.svc
             - name: DB_POSTGRESDB_PORT
               value: "5432"
             - name: DB_POSTGRESDB_DATABASE
