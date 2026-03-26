@@ -30,6 +30,24 @@ spec:
                 - ALL
           ports:
             - containerPort: 5678
+          startupProbe:
+            httpGet:
+              path: /healthz
+              port: 5678
+            failureThreshold: 15
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 5678
+            initialDelaySeconds: 10
+            periodSeconds: 20
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 5678
+            initialDelaySeconds: 5
+            periodSeconds: 10
           env:
             - name: DB_TYPE
               value: postgres
@@ -59,3 +77,10 @@ spec:
               value: "http://<node-ip>:30080"
             - name: N8N_SECURE_COOKIE
               value: "false"
+          volumeMounts:
+            - name: n8n-data
+              mountPath: /home/node/.n8n
+      volumes:
+        - name: n8n-data
+          persistentVolumeClaim:
+            claimName: n8n-pvc

@@ -8,6 +8,7 @@ namespace: n8n
 
 resources:
   - secret.yml
+  - pvc.yml
   - deployment.yml
   - service.yml
   - route.yml
