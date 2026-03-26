@@ -9,3 +9,14 @@ spec:
     name: default
   name: keycloak
   owner: keycloak
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: Database
+metadata:
+  generation: 1
+  name: n8n
+spec:
+  cluster:
+    name: default
+  name: n8n
+  owner: n8n
