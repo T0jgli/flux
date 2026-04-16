@@ -1,6 +1,6 @@
 driver:
   kind: modern_ebpf
-  ebpf:
+  modernEbpf:
     leastPrivileged: true
 #falcoctl:
 #  artifact:
