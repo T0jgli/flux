@@ -3,6 +3,7 @@ kind: Cluster
 metadata:
   name: default
 spec:
+  imageName: ghcr.io/cloudnative-pg/postgresql:18.3
   instances: 1
   env:
     - name: TZ
@@ -10,7 +11,6 @@ spec:
   replicationSlots:
     highAvailability:
       enabled: true
-
   storage:
     size: 10Gi
     storageClass: local-path
