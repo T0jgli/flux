@@ -6,3 +6,6 @@ mode:
 replicCaCount: 1
 ingress:
   enabled: false
+config:
+  rustfs:
+    domains: "rustfs.kvlk.local"

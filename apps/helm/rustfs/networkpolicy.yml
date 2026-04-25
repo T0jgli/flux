@@ -15,3 +15,16 @@ spec:
       toPorts:
         - ports:
             - port: "9001"
+    - fromEndpoints:
+        - matchLabels:
+            gateway.envoyproxy.io/owning-gateway-name: eg
+            app.kubernetes.io/name: envoy
+            io.kubernetes.pod.namespace: envoy-gateway-system
+      toPorts:
+        - ports:
+            - port: "9001"
+              protocol: TCP
+          rules:
+            http:
+              - method: ".*"
+                path: "/public/.*"
