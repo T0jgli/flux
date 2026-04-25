@@ -11,3 +11,4 @@ config:
     domains: "rustfs.kvlk.local"
 secret:
   existingSecret: rustfs-user
+enableServiceLinks: true
