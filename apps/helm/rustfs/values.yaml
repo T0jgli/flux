@@ -1,12 +1,9 @@
 mode:
   standalone:
-    enabled: false
-  distributed:
     enabled: true
-replicaCount: 2
-affinity:
-  podAntiAffinity:
+  distributed:
     enabled: false
+replicaCount: 1
 ingress:
   enabled: false
 config:
