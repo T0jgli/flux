@@ -4,6 +4,7 @@ namespace: rustfs
 resources:
   - rustfs.yaml
   - route.yml
+  - networkpolicy.yml
 
 configMapGenerator:
   - name: rustfs-values
