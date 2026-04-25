@@ -1,9 +1,9 @@
 mode:
   standalone:
-    enabled: false
-  distributed:
     enabled: true
-replicaCount: 2
+  distributed:
+    enabled: false
+replicaCount: 1
 ingress:
   enabled: false
 config:
