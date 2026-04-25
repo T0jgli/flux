@@ -8,7 +8,7 @@ ingress:
   enabled: false
 config:
   rustfs:
-    domains: "rustfs.kvlk.local,rustfs.kvlk.hu"
+    domains: "rustfs.kvlk.local:8443,rustfs.kvlk.hu"
 secret:
   existingSecret: rustfs-user
 enableServiceLinks: true
