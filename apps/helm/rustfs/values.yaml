@@ -9,3 +9,5 @@ ingress:
 config:
   rustfs:
     domains: "rustfs.kvlk.local"
+secret:
+  existingSecret: rustfs-user
