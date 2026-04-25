@@ -50,10 +50,29 @@ spec:
   hostnames:
     - "rustfs.kvlk.hu"
   rules:
-    - matches:
+    - backendRefs:
+        - name: rustfs-svc
+          port: 9001
+      matches:
         - path:
             type: PathPrefix
             value: /public
-      backendRefs:
-        - name: rustfs-svc
-          port: 9001
+        - path:
+            type: Exact
+            value: /favicon.ico
+      filters:
+        - type: ResponseHeaderModifier
+          responseHeaderModifier:
+            set:
+              - name: Referrer-Policy
+                value: "no-referrer, strict-origin-when-cross-origin"
+              - name: Strict-Transport-Security
+                value: "max-age=63072000; includeSubDomains"
+              - name: X-Content-Type-Options
+                value: "nosniff"
+              - name: X-Frame-Options
+                value: "SAMEORIGIN"
+              - name: X-XSS-Protection
+                value: "1; mode=block"
+              - name: Permissions-Policy
+                value: "geolocation=(),midi=(),sync-xhr=(),microphone=(),camera=(),magnetometer=(),gyroscope=(),fullscreen=(self),payment=()"
