@@ -26,5 +26,7 @@ spec:
               protocol: TCP
           rules:
             http:
-              - method: ".*"
+              - method: "GET"
                 path: "/public/.*"
+              - method: "GET"
+                path: "/favicon.ico"
