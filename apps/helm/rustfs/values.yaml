@@ -3,7 +3,7 @@ mode:
     enabled: true
   distributed:
     enabled: false
-replicCaCount: 1
+replicCaCount: 2
 ingress:
   enabled: false
 config:
