@@ -1,0 +1,8 @@
+mode:
+  standalone:
+    enabled: true
+  distributed:
+    enabled: false
+replicCaCount: 1
+ingress:
+  enabled: false
