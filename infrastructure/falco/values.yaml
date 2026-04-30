@@ -17,4 +17,4 @@ resources:
 falco:
   rules:
     - disable:
-        - rule: Drop and execute new binary in container
+        rule: Drop and execute new binary in container
