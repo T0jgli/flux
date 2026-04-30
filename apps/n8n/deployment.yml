@@ -71,8 +71,10 @@ spec:
               value: Europe/Budapest
             - name: N8N_HOST
               value: n8n.kvlk.local
+            - name: N8N_WEBHOOK_URL
+              value: https://n8n.kvlk.local:8443
             - name: N8N_PORT
-              value: "8443"
+              value: "5678"
             - name: N8N_PROTOCOL
               value: https
             - name: DB_POSTGRESDB_STATEMENT_TIMEOUT
