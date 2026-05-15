@@ -129,10 +129,10 @@ spec:
       tls:
         mode: Terminate
         certificateRefs:
-          - name: kalandozas-tls
+          - name: kalandozas-admin-tls
             kind: Secret
             group: ""
-            namespace: kalandozas
+            namespace: kalandozas-admin
     - name: keycloak
       hostname: "keycloak.kvlk.hu"
       protocol: HTTPS
