@@ -105,6 +105,34 @@ spec:
             kind: Secret
             group: ""
             namespace: zot
+    - name: kalandozas
+      hostname: "kalandozas.hu"
+      protocol: HTTPS
+      port: 443
+      allowedRoutes:
+        namespaces:
+          from: All
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - name: kalandozas-tls
+            kind: Secret
+            group: ""
+            namespace: kalandozas
+    - name: kalandozas-admin
+      hostname: "admin.kalandozas.hu"
+      protocol: HTTPS
+      port: 443
+      allowedRoutes:
+        namespaces:
+          from: All
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - name: kalandozas-tls
+            kind: Secret
+            group: ""
+            namespace: kalandozas
     - name: keycloak
       hostname: "keycloak.kvlk.hu"
       protocol: HTTPS
