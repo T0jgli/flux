@@ -133,6 +133,34 @@ spec:
             kind: Secret
             group: ""
             namespace: kalandozas-admin
+    - name: contibus
+      hostname: "contibus.hu"
+      protocol: HTTPS
+      port: 443
+      allowedRoutes:
+        namespaces:
+          from: All
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - name: contibus-tls
+            kind: Secret
+            group: ""
+            namespace: contibus
+    - name: contitrans
+      hostname: "neoline-contitrans.hu"
+      protocol: HTTPS
+      port: 443
+      allowedRoutes:
+        namespaces:
+          from: All
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - name: contitrans-tls
+            kind: Secret
+            group: ""
+            namespace: contitrans
     - name: keycloak
       hostname: "keycloak.kvlk.hu"
       protocol: HTTPS
