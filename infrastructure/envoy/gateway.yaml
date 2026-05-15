@@ -204,6 +204,16 @@ spec:
     - name: eg
       sectionName: http-redirect
   rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /.well-known/acme-challenge/
+      filters:
+        - type: ResponseHeaderModifier
+          responseHeaderModifier:
+            set:
+              - name: Content-Type
+                value: text/plain
     - filters:
         - type: RequestRedirect
           requestRedirect:
