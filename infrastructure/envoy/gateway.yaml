@@ -161,6 +161,34 @@ spec:
             kind: Secret
             group: ""
             namespace: contitrans
+    - name: www-contibus
+      hostname: "www.contibus.hu"
+      protocol: HTTPS
+      port: 443
+      allowedRoutes:
+        namespaces:
+          from: All
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - name: contibus-tls
+            kind: Secret
+            group: ""
+            namespace: contibus
+    - name: www-contitrans
+      hostname: "www.neoline-contitrans.hu"
+      protocol: HTTPS
+      port: 443
+      allowedRoutes:
+        namespaces:
+          from: All
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - name: contitrans-tls
+            kind: Secret
+            group: ""
+            namespace: contitrans
     - name: keycloak
       hostname: "keycloak.kvlk.hu"
       protocol: HTTPS
