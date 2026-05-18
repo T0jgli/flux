@@ -15,19 +15,20 @@ spec:
       toPorts:
         - ports:
             - port: "9000"
-  # egress:
-  #   - toEndpoints:
-  #       - matchLabels:
-  #           io.kubernetes.pod.namespace: kube-system
-  #           k8s-app: kube-dns
-  #     toPorts:
-  #       - ports:
-  #           - port: "53"
-  #             protocol: UDP
-  #         rules:
-  #           dns:
-  #             - matchPattern: "*"
-  #   - toEntities:
-  #       - kube-apiserver
-  #   - toCIDRSet:
-  #       - cidr: 10.0.0.161/32
+  egress:
+    - toEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: kube-system
+            k8s-app: kube-dns
+      toPorts:
+        - ports:
+            - port: "53"
+              protocol: UDP
+          rules:
+            dns:
+              - matchPattern: "*"
+    - toEntities:
+        - kube-apiserver
+        - host
+    - toCIDRSet:
+        - cidr: 10.0.0.161/32
