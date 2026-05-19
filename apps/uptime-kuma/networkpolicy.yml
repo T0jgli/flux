@@ -17,10 +17,10 @@ spec:
         - ports:
             - port: "3001"
               protocol: TCP
-          rules:
-            http:
-              - method: ".*"
-                path: ".*"
+          # rules:
+          #   http:
+          #     - method: ".*"
+          #       path: ".*"
 
     - fromEndpoints:
         - matchLabels:
@@ -31,28 +31,28 @@ spec:
         - ports:
             - port: "3001"
               protocol: TCP
-          rules:
-            http:
-              # Global
-              - method: ".*"
-                path: "/icon.svg"
-              - method: ".*"
-                path: "^/assets/.*"
-              # Neoline
-              - method: ".*"
-                path: "/status/neoline"
-              - method: ".*"
-                path: "/api/status-page/heartbeat/neoline"
-              - method: ".*"
-                path: "^/api/neoline/.*"
-              - method: ".*"
-                path: "^/api/status-page/neoline/.*"
-              # KBBudapest
-              - method: ".*"
-                path: "/status/kbbudapest"
-              - method: ".*"
-                path: "/api/status-page/heartbeat/kbbudapest"
-              - method: ".*"
-                path: "^/api/kbbudapest/.*"
-              - method: ".*"
-                path: "^/api/status-page/kbbudapest/.*"
+          # rules:
+          #   http:
+          #     # Global
+          #     - method: ".*"
+          #       path: "/icon.svg"
+          #     - method: ".*"
+          #       path: "^/assets/.*"
+          #     # Neoline
+          #     - method: ".*"
+          #       path: "/status/neoline"
+          #     - method: ".*"
+          #       path: "/api/status-page/heartbeat/neoline"
+          #     - method: ".*"
+          #       path: "^/api/neoline/.*"
+          #     - method: ".*"
+          #       path: "^/api/status-page/neoline/.*"
+          #     # KBBudapest
+          #     - method: ".*"
+          #       path: "/status/kbbudapest"
+          #     - method: ".*"
+          #       path: "/api/status-page/heartbeat/kbbudapest"
+          #     - method: ".*"
+          #       path: "^/api/kbbudapest/.*"
+          #     - method: ".*"
+          #       path: "^/api/status-page/kbbudapest/.*"
