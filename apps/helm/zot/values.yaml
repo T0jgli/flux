@@ -36,7 +36,7 @@ configFiles:
           "failDelay": 5
         }
       },
-      "log": { "level": "debug" },
+      "log": { "level": "warning" },
       "extensions": {
         "search": {
           "enable": true
