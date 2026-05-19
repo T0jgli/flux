@@ -6,6 +6,7 @@ resources:
   - secrets.yaml
   - cert-manager.yaml
   - clusterissuer.yaml
+  - certificates.yaml
 
 configMapGenerator:
   - name: cert-manager-values
