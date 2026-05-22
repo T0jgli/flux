@@ -30,3 +30,9 @@ spec:
                 path: "/public/.*"
               - method: "GET"
                 path: "/favicon.ico"
+    - fromEntities:
+        - host
+        - remote-node
+      toPorts:
+        - ports:
+            - port: "9001"
