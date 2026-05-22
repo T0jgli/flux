@@ -17,6 +17,13 @@ spec:
         - ports:
             - port: "10080"
             - port: "10443"
+    - fromEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: cert-manager
+      toPorts:
+        - ports:
+            - port: "10080"
+            - port: "10443"
 ---
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
@@ -43,6 +50,12 @@ spec:
         - matchLabels:
             app: uptime-kuma
             io.kubernetes.pod.namespace: kuma
+      toPorts:
+        - ports:
+            - port: "8443"
+    - fromEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: cert-manager
       toPorts:
         - ports:
             - port: "8443"
