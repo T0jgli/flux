@@ -15,7 +15,6 @@ resources:
     memory: 0Mi
 
 falco:
-  log_level: critical
   rules:
     - disable:
         rule: Drop and execute new binary in container
