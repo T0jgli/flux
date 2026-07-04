@@ -17,10 +17,10 @@ spec:
         - ports:
             - port: "3001"
               protocol: TCP
-          rules:
-            http:
-              - method: ".*"
-                path: ".*"
+          # rules:
+          #   http:
+          #     - method: ".*"
+          #       path: ".*"
 
     - fromEndpoints:
         - matchLabels:
