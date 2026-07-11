@@ -7,7 +7,7 @@ replicaCount: 1
 ingress:
   enabled: false
 config:
-  logLevel: warning
+  logLevel: warn
   rustfs:
     domains: "rustfs.kvlk.local:8443,rustfs.kvlk.hu"
 secret:
