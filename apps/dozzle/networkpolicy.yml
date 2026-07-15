@@ -1,0 +1,33 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: dozzle
+spec:
+  endpointSelector:
+    matchLabels:
+      app: dozzle
+  ingress:
+    - fromEndpoints:
+        - matchLabels:
+            gateway.envoyproxy.io/owning-gateway-name: eg-internal
+            app.kubernetes.io/name: envoy
+            io.kubernetes.pod.namespace: envoy-gateway-system
+      toPorts:
+        - ports:
+            - port: "9000"
+  egress:
+    - toEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: kube-system
+            k8s-app: kube-dns
+      toPorts:
+        - ports:
+            - port: "53"
+              protocol: UDP
+          rules:
+            dns:
+              - matchPattern: "*"
+    - toEntities:
+        - kube-apiserver
+        - host
+        - remote-node
