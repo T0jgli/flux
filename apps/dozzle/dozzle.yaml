@@ -71,11 +71,21 @@ spec:
         app: dozzle
     spec:
       serviceAccountName: pod-viewer
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
       containers:
         - name: dozzle
           image: amir20/dozzle:v10.6
           ports:
             - containerPort: 8080
+          securityContext:
+            allowPrivilegeEscalation: false
+            privileged: false
+            capabilities:
+              drop:
+                - ALL
           env:
             - name: DOZZLE_MODE
               value: "k8s"
