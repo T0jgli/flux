@@ -72,7 +72,6 @@ spec:
     spec:
       serviceAccountName: pod-viewer
       securityContext:
-        runAsNonRoot: true
         seccompProfile:
           type: RuntimeDefault
       containers:
