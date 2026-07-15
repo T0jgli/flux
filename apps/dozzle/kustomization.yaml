@@ -5,3 +5,4 @@ resources:
   - dozzle.yaml
   - route.yaml
   - networkpolicy.yml
+  - secret.yml

@@ -79,13 +79,21 @@ spec:
           env:
             - name: DOZZLE_MODE
               value: "k8s"
+            - name: DOZZLE_AUTH_PROVIDER
+              value: "simple"
           volumeMounts:
             - name: data
               mountPath: /data
+            - name: users
+              mountPath: /data/users.yml
+              subPath: users.yml
       volumes:
         - name: data
           persistentVolumeClaim:
             claimName: dozzle-data
+        - name: users
+          secret:
+            secretName: dozzle-users
 ---
 # service.yaml
 apiVersion: v1
