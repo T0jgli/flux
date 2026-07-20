@@ -4,6 +4,8 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: portainer
+  labels:
+    pod-security.kubernetes.io/enforce: privileged
 ---
 # Source: portainer/templates/serviceaccount.yaml
 apiVersion: v1
@@ -14,7 +16,7 @@ metadata:
   labels:
     app.kubernetes.io/name: portainer
     app.kubernetes.io/instance: portainer
-    app.kubernetes.io/version: "ce-latest-ee-2.39.2"
+    app.kubernetes.io/version: "ce-latest-ee-2.39.5"
 ---
 # Source: portainer/templates/pvc.yaml
 kind: "PersistentVolumeClaim"
@@ -28,11 +30,10 @@ metadata:
     io.portainer.kubernetes.application.stack: portainer
     app.kubernetes.io/name: portainer
     app.kubernetes.io/instance: portainer
-    app.kubernetes.io/version: "ce-latest-ee-2.39.2"
+    app.kubernetes.io/version: "ce-latest-ee-2.39.5"
 spec:
   accessModes:
     - "ReadWriteOnce"
-  storageClassName: "local-path"
   resources:
     requests:
       storage: "10Gi"
@@ -45,7 +46,7 @@ metadata:
   labels:
     app.kubernetes.io/name: portainer
     app.kubernetes.io/instance: portainer
-    app.kubernetes.io/version: "ce-latest-ee-2.39.2"
+    app.kubernetes.io/version: "ce-latest-ee-2.39.5"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -65,7 +66,7 @@ metadata:
     io.portainer.kubernetes.application.stack: portainer
     app.kubernetes.io/name: portainer
     app.kubernetes.io/instance: portainer
-    app.kubernetes.io/version: "ce-latest-ee-2.39.2"
+    app.kubernetes.io/version: "ce-latest-ee-2.39.5"
 spec:
   type: ClusterIP
   ports:
@@ -95,7 +96,7 @@ metadata:
     io.portainer.kubernetes.application.stack: portainer
     app.kubernetes.io/name: portainer
     app.kubernetes.io/instance: portainer
-    app.kubernetes.io/version: "ce-latest-ee-2.39.2"
+    app.kubernetes.io/version: "ce-latest-ee-2.39.5"
 spec:
   replicas: 1
   strategy:
@@ -118,7 +119,7 @@ spec:
             claimName: portainer
       containers:
         - name: portainer
-          image: "portainer/portainer-ce:2.39.2"
+          image: "portainer/portainer-ce:2.39.5"
           imagePullPolicy: Always
           args:
             - "--tunnel-port=30776"
