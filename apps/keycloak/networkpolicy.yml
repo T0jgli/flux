@@ -17,10 +17,10 @@ spec:
         - ports:
             - port: "8080"
               protocol: TCP
-          # rules:
-          #   http:
-          #     - method: ".*"
-          #       path: ".*"
+          rules:
+            http:
+              - method: ".*"
+                path: ".*"
 
     - fromEndpoints:
         - matchLabels:
@@ -31,14 +31,14 @@ spec:
         - ports:
             - port: "8080"
               protocol: TCP
-          # rules:
-          #   http:
-          #     - method: ".*"
-          #       path: "^/realms/.*"
-          #     - method: ".*"
-          #       path: "^/resources/.*"
-          #     - method: ".*"
-          #       path: "^/.well-known.*"
+          rules:
+            http:
+              - method: ".*"
+                path: "^/realms/.*"
+              - method: ".*"
+                path: "^/resources/.*"
+              - method: ".*"
+                path: "^/.well-known.*"
 ---
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
