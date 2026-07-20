@@ -30,3 +30,9 @@ spec:
         - remote-node
     - toCIDRSet:
         - cidr: 100.72.4.122/32
+    - toEntities:
+        - world
+      toPorts:
+        - ports:
+            - port: "443"
+              protocol: TCP
