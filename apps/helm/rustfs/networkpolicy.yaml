@@ -24,9 +24,9 @@ spec:
         - ports:
             - port: "9001"
               protocol: TCP
-          # rules:
-          #   http:
-          #     - method: "GET"
-          #       path: "/public/.*"
-          #     - method: "GET"
-          #       path: "/favicon.ico"
+          rules:
+            http:
+              - method: "GET"
+                path: "/public/.*"
+              - method: "GET"
+                path: "/favicon.ico"
